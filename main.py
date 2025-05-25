@@ -8,6 +8,7 @@ import os
 from decimal import Decimal, ROUND_DOWN
 from dotenv import load_dotenv
 import json
+import threading
 
 load_dotenv()
 
@@ -79,15 +80,20 @@ class PaperTradingClient:
         if response:
             for s in response.get("symbols", []):
                 if s["symbol"] == symbol.replace("/", ""):
+                    quantity_precision = 8
+                    price_precision = 2
+                    min_notional = 10.0
                     for f in s.get("filters", []):
                         if f["filterType"] == "PRICE_FILTER":
                             tick_size = f["tickSize"]
                             price_precision = len(tick_size.split('.')[1]) if '.' in tick_size else 0
                         if f["filterType"] == "LOT_SIZE":
                             step_size = f["stepSize"]
-                            quantity_precision = len(step_size.split('.')[1]) if '.' in tick_size else 0
-                    return quantity_precision, price_precision
-        return 8, 2
+                            quantity_precision = len(step_size.split('.')[1]) if '.' in step_size else 0
+                        if f["filterType"] == "MIN_NOTIONAL":
+                            min_notional = float(f["minNotional"])
+                    return quantity_precision, price_precision, min_notional
+        return 8, 2, 10.0
 
     def _validate_order_params(self, symbol, side, quantity=None, price=None, quote_order_qty=None):
         symbol = symbol.replace("/", "")
@@ -240,7 +246,7 @@ class PaperTradingClient:
         else:
             raise ValueError("Either quantity or quoteOrderQty must be provided")
         response = self._make_request("POST", "/v3/order", params, signed=True)
-        if response and "orderId" in response:
+        if response and "cummulativeQuoteQty" in response:
             order = {
                 "symbol": response["symbol"],
                 "orderId": response["orderId"],
@@ -286,15 +292,50 @@ class PaperTradingClient:
         return []
 
     def sell_all_to_usdt(self):
+        exclusion_file = 'excluded_currencies.json'
+        file_lock = threading.Lock()
+        try:
+            with file_lock:
+                if os.path.exists(exclusion_file):
+                    with open(exclusion_file, 'r') as f:
+                        excluded_currencies = json.load(f)
+                else:
+                    excluded_currencies = []
+                    with open(exclusion_file, 'w') as f:
+                        json.dump(excluded_currencies, f, indent=2)
+        except Exception as e:
+            logging.error(f"Failed to load exclusion list: {e}")
+            excluded_currencies = []
+        
         balances = self.view_account_balance()
         usdt_balance = next((b["free"] for b in balances if b["asset"] == "USDT"), 0)
         for balance in balances:
             asset = balance["asset"]
             if asset != "USDT" and balance["free"] > 0:
+                if asset in excluded_currencies:
+                    logging.info(f"Skipping {asset}: In exclusion list")
+                    continue
                 symbol = f"{asset}USDT"
                 if symbol in self.valid_pairs:
-                    quantity_precision, _ = self._get_symbol_precision(symbol)
+                    quantity_precision, _, min_notional = self._get_symbol_precision(symbol)
                     quantity = float(Decimal(str(balance["free"])).quantize(Decimal(f"0.{'0' * quantity_precision}"), rounding=ROUND_DOWN))
+                    price = self.view_current_price(symbol)
+                    if price is None:
+                        logging.warning(f"Skipping {asset}: Failed to fetch price")
+                        continue
+                    notional = quantity * price
+                    if notional < min_notional:
+                        logging.warning(f"Skipping {asset}: Notional value {notional} USDT below minimum {min_notional} USDT")
+                        try:
+                            with file_lock:
+                                if asset not in excluded_currencies:
+                                    excluded_currencies.append(asset)
+                                    with open(exclusion_file, 'w') as f:
+                                        json.dump(excluded_currencies, f, indent=2)
+                                    logging.info(f"Added {asset} to exclusion list")
+                        except Exception as e:
+                            logging.error(f"Failed to update exclusion list for {asset}: {e}")
+                        continue
                     params = {
                         "symbol": symbol,
                         "side": "SELL",
@@ -302,13 +343,16 @@ class PaperTradingClient:
                         "quantity": quantity,
                         "newOrderRespType": "FULL"
                     }
-                    response = self._make_request("POST", "/v3/order", params, signed=True)
-                    if response and "cummulativeQuoteQty" in response:
-                        value = float(response["cummulativeQuoteQty"])
-                        usdt_balance += value
-                        logging.info(f"Sold {quantity} {asset} for {value} USDT")
-                    else:
-                        logging.error(f"Failed to sell {asset}")
+                    try:
+                        response = self._make_request("POST", "/v3/order", params, signed=True)
+                        if response and "cummulativeQuoteQty" in response:
+                            value = float(response["cummulativeQuoteQty"])
+                            usdt_balance += value
+                            logging.info(f"Sold {quantity} {asset} for {value} USDT")
+                        else:
+                            logging.error(f"Failed to sell {asset}: {response}")
+                    except TradingAPIError as e:
+                        logging.error(f"Failed to sell {asset}: {e}")
         final_balance = self.view_account_balance()
         usdt_final = next((b["free"] for b in final_balance if b["asset"] == "USDT"), usdt_balance)
         logging.info(f"Total USDT after selling: {usdt_final}")
@@ -335,7 +379,7 @@ if __name__ == "__main__":
             # print("Limit Order:", limit_order)
             # market_order = client.place_market_order('ETH/USDT', 'BUY', quote_order_qty=1000)
             # print("Market Order:", market_order)
-            print("USDT Balance After Selling All:", client.sell_all_to_usdt())
+            # print("USDT Balance After Selling All:", client.sell_all_to_usdt())
             print("Account Balances:", client.view_account_balance())
     except Exception as e:
         logging.error(f"Script execution failed: {e}")
