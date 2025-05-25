@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 import json
 import threading
 from datetime import datetime
+from collections import defaultdict, deque
 
 load_dotenv()
 
@@ -82,7 +83,6 @@ class PaperTradingClient:
         """Save trade details to trade_history.json in a thread-safe manner."""
         try:
             with self.file_lock:
-                # Load existing trade history or initialize empty list
                 trade_history = []
                 if os.path.exists(self.trade_history_file):
                     try:
@@ -91,10 +91,8 @@ class PaperTradingClient:
                     except (json.JSONDecodeError, IOError) as e:
                         logging.warning(f"Failed to read trade_history.json: {e}. Starting with empty history.")
                 
-                # Append new trade
                 trade_history.append(trade_data)
                 
-                # Write back to file
                 with open(self.trade_history_file, 'w') as f:
                     json.dump(trade_history, f, indent=2)
                 logging.info(f"Saved trade to {self.trade_history_file}: {trade_data['symbol']} {trade_data['side']}")
@@ -140,8 +138,6 @@ class PaperTradingClient:
             {"asset": b["asset"], "free": float(b["free"]), "locked": float(b["locked"])}
             for b in response.get("balances", []) if float(b["free"]) > 0 or float(b["locked"]) > 0
         ]
-        # logging.info(f"Account balances: {balances}")
-        # print(json.dumps(balances, indent=2))
         return balances
 
     def view_usdt_balance(self):
@@ -178,8 +174,6 @@ class PaperTradingClient:
                 for b in response.get("balances", [])
                 if (float(b["free"]) > 0 or float(b["locked"]) > 0) and b["asset"] != "USDT" and b["asset"] not in excluded_currencies
             ]
-            logging.info(f"Portfolio: {portfolio}")
-            print(json.dumps(portfolio, indent=2))
             return portfolio
         except TradingAPIError as e:
             logging.error(f"Failed to fetch portfolio: {e}")
@@ -264,7 +258,6 @@ class PaperTradingClient:
 
     def get_trades_in_time_range(self, start_time, end_time):
         """Retrieve trades from trade_history.json within the specified time range."""
-        # Convert datetime strings or timestamps to milliseconds
         def to_timestamp(t):
             if isinstance(t, str):
                 try:
@@ -282,7 +275,6 @@ class PaperTradingClient:
         
         logging.info(f"Fetching trades from {self.trade_history_file} for time range {start_time} to {end_time}")
         
-        # Load trade history from JSON
         trades = []
         try:
             with self.file_lock:
@@ -296,7 +288,6 @@ class PaperTradingClient:
             logging.error(f"Failed to read {self.trade_history_file}: {e}")
             return []
         
-        # Filter trades within the time range
         filtered_trades = []
         for trade in trades:
             if not isinstance(trade, dict) or 'time' not in trade:
@@ -305,7 +296,6 @@ class PaperTradingClient:
             try:
                 trade_time = int(trade['time'])
                 if start_ms <= trade_time <= end_ms:
-                    # Ensure all required fields are present and properly typed
                     filtered_trade = {
                         "symbol": str(trade.get('symbol', '')),
                         "side": str(trade.get('side', '')),
@@ -325,6 +315,187 @@ class PaperTradingClient:
         
         logging.info(f"Retrieved {len(filtered_trades)} trades from {self.trade_history_file} in time range")
         return sorted(filtered_trades, key=lambda x: x["time"])
+
+    def calculate_pnl_in_time_range(self, start_time, end_time):
+        """Calculate realized and unrealized PNL for trades in the given time range."""
+        def to_timestamp(t):
+            if isinstance(t, str):
+                try:
+                    dt = datetime.strptime(t, "%Y-%m-%d %H:%M:%S")
+                    return int(dt.timestamp() * 1000)
+                except ValueError:
+                    raise ValueError(f"Invalid time format: {t}. Use 'YYYY-MM-DD HH:MM:SS' or milliseconds")
+            return int(t)
+        
+        start_ms = to_timestamp(start_time)
+        end_ms = to_timestamp(end_time)
+        
+        if start_ms >= end_ms:
+            raise ValueError(f"start_time ({start_time}) must be before end_time ({end_time})")
+        
+        logging.info(f"Calculating PNL for time range {start_time} to {end_time}")
+        
+        # Fetch trades from trade_history.json
+        trades = self.get_trades_in_time_range(start_time, end_time)
+        
+        # Fetch current portfolio for unrealized PNL
+        portfolio = self.view_portfolio()
+        
+        # Group trades by symbol for realized PNL
+        trades_by_symbol = defaultdict(list)
+        for trade in trades:
+            trades_by_symbol[trade["symbol"]].append(trade)
+        
+        realized_pnl = 0.0
+        unrealized_pnl = 0.0
+        symbol_pnl = {}
+        open_positions = {}
+        
+        # Calculate realized PNL
+        for symbol, symbol_trades in trades_by_symbol.items():
+            buy_queue = deque()  # Store buy trades: (quantity, price, commission_usdt)
+            symbol_realized_pnl = 0.0
+            
+            # Sort trades by time for FIFO
+            symbol_trades.sort(key=lambda x: x["time"])
+            
+            for trade in symbol_trades:
+                quantity = trade["quantity"]
+                price = trade["price"]
+                commission = trade["commission"]
+                commission_asset = trade["commissionAsset"]
+                
+                # Convert commission to USDT
+                commission_usdt = commission
+                if commission_asset != "USDT" and commission > 0:
+                    commission_price = self.view_current_price(f"{commission_asset}USDT")
+                    if commission_price:
+                        commission_usdt = commission * commission_price
+                    else:
+                        logging.warning(f"Could not convert commission {commission} {commission_asset} for {symbol}. Ignoring commission.")
+                        commission_usdt = 0.0
+                
+                if trade["side"] == "BUY":
+                    buy_queue.append((quantity, price, commission_usdt))
+                elif trade["side"] == "SELL":
+                    sell_quantity = quantity
+                    sell_commission = commission_usdt
+                    while sell_quantity > 0 and buy_queue:
+                        buy_quantity, buy_price, buy_commission = buy_queue[0]
+                        qty_to_match = min(sell_quantity, buy_quantity)
+                        
+                        # Calculate realized PNL
+                        profit = (price - buy_price) * qty_to_match - (buy_commission * (qty_to_match / buy_quantity) + sell_commission * (qty_to_match / quantity))
+                        symbol_realized_pnl += profit
+                        
+                        sell_quantity -= qty_to_match
+                        buy_queue[0] = (buy_quantity - qty_to_match, buy_price, buy_commission * ((buy_quantity - qty_to_match) / buy_quantity)) if buy_quantity > qty_to_match else None
+                        if buy_queue[0] is None or buy_queue[0][0] <= 0:
+                            buy_queue.popleft()
+            
+            realized_pnl += symbol_realized_pnl
+            symbol_pnl[symbol] = {"realized_pnl": symbol_realized_pnl, "unrealized_pnl": 0.0, "total_pnl": symbol_realized_pnl}
+        
+        # Calculate unrealized PNL using portfolio
+        for asset in portfolio:
+            base_asset = asset["asset"]
+            symbol = f"{base_asset}USDT"
+            if symbol not in self.valid_pairs:
+                logging.warning(f"Skipping {symbol}: Not in valid trading pairs")
+                continue
+            
+            quantity_held = asset["free"] + asset["locked"]
+            if quantity_held <= 0:
+                continue
+            
+            # Fetch all buy trades for this symbol (not just in time range) to calculate avg buy price
+            all_trades = []
+            try:
+                with self.file_lock:
+                    if os.path.exists(self.trade_history_file):
+                        with open(self.trade_history_file, 'r') as f:
+                            all_trades = json.load(f)
+            except (json.JSONDecodeError, IOError) as e:
+                logging.error(f"Failed to read {self.trade_history_file}: {e}")
+                continue
+            
+            buy_trades = [
+                t for t in all_trades
+                if t.get("symbol") == symbol and t.get("side") == "BUY" and isinstance(t, dict) and "quantity" in t and "price" in t and "commission" in t
+            ]
+            
+            if not buy_trades:
+                logging.warning(f"No buy trades found for {symbol}. Skipping unrealized PNL.")
+                continue
+            
+            # Calculate average buy price and total commission
+            total_quantity = 0.0
+            total_cost = 0.0
+            total_commission = 0.0
+            for trade in buy_trades:
+                qty = float(trade["quantity"])
+                price = float(trade["price"])
+                commission = float(trade["commission"])
+                commission_asset = trade["commissionAsset"]
+                
+                commission_usdt = commission
+                if commission_asset != "USDT" and commission > 0:
+                    commission_price = self.view_current_price(f"{commission_asset}USDT")
+                    if commission_price:
+                        commission_usdt = commission * commission_price
+                    else:
+                        logging.warning(f"Could not convert commission {commission} {commission_asset} for {symbol}. Ignoring commission.")
+                        commission_usdt = 0.0
+                
+                total_quantity += qty
+                total_cost += qty * price
+                total_commission += commission_usdt
+            
+            avg_buy_price = total_cost / total_quantity if total_quantity > 0 else 0.0
+            
+            # Fetch current market price
+            current_price = self.view_current_price(symbol)
+            if current_price is None:
+                logging.warning(f"Could not fetch current price for {symbol}. Skipping unrealized PNL.")
+                continue
+            
+            # Estimate sell commission
+            estimated_sell_commission = quantity_held * current_price * self.brokerage_fee
+            
+            # Unrealized PNL = (current_price - avg_buy_price) * quantity_held - commissions
+            symbol_unrealized_pnl = (current_price - avg_buy_price) * quantity_held - total_commission * (quantity_held / total_quantity) - estimated_sell_commission
+            
+            unrealized_pnl += symbol_unrealized_pnl
+            open_positions[symbol] = {
+                "quantity": quantity_held,
+                "avg_buy_price": avg_buy_price,
+                "current_price": current_price,
+                "unrealized_pnl": symbol_unrealized_pnl
+            }
+            
+            # Update symbol_pnl
+            if symbol in symbol_pnl:
+                symbol_pnl[symbol]["unrealized_pnl"] = symbol_unrealized_pnl
+                symbol_pnl[symbol]["total_pnl"] = symbol_pnl[symbol]["realized_pnl"] + symbol_unrealized_pnl
+            else:
+                symbol_pnl[symbol] = {
+                    "realized_pnl": 0.0,
+                    "unrealized_pnl": symbol_unrealized_pnl,
+                    "total_pnl": symbol_unrealized_pnl
+                }
+        
+        total_pnl = realized_pnl + unrealized_pnl
+        
+        result = {
+            "total_pnl": total_pnl,
+            "realized_pnl": realized_pnl,
+            "unrealized_pnl": unrealized_pnl,
+            "symbol_pnl": symbol_pnl,
+            "open_positions": open_positions
+        }
+        
+        logging.info(f"PNL Summary: Total PNL = {total_pnl:.2f} USDT, Realized = {realized_pnl:.2f} USDT, Unrealized = {unrealized_pnl:.2f} USDT")
+        return result
 
     def place_limit_order(self, symbol, side, quantity, price):
         self._validate_order_params(symbol, side, quantity=quantity, price=price)
@@ -355,7 +526,6 @@ class PaperTradingClient:
                 "commission": float(response.get("fills", [{}])[0].get("commission", 0))
             }
             logging.info(f"Placed limit order: {order}")
-            # Save trade to JSON if order is filled
             if response.get("status") == "FILLED":
                 trade_data = {
                     "symbol": order["symbol"],
@@ -405,7 +575,6 @@ class PaperTradingClient:
                 "commission": float(response.get("fills", [{}])[0].get("commission", 0))
             }
             logging.info(f"Placed market order: {order}")
-            # Save trade to JSON
             trade_data = {
                 "symbol": order["symbol"],
                 "side": order["side"],
@@ -424,7 +593,6 @@ class PaperTradingClient:
         return None
 
     def sell_asset_by_percentage(self, symbol, percentage=100):
-        """Sell a percentage of the available asset for the given trading pair."""
         if not 0 < percentage <= 100:
             raise ValueError(f"Percentage must be between 0 and 100, got {percentage}")
         
@@ -461,7 +629,6 @@ class PaperTradingClient:
         logging.info(f"Selling {percentage}% of {base_asset} ({quantity} {base_asset})")
         print(f"Selling {percentage}% of {base_asset} ({quantity} {base_asset})")
         order = self.place_market_order(symbol, 'SELL', quantity=quantity)
-        # No need to save to JSON here, as place_market_order already handles it
         return order
 
     def view_open_orders(self, symbol=None):
@@ -558,7 +725,6 @@ class PaperTradingClient:
                             value = float(response["cummulativeQuoteQty"])
                             usdt_balance += value
                             logging.info(f"Sold {quantity} {asset} for {value} USDT")
-                            # Save trade to JSON
                             trade_data = {
                                 "symbol": response["symbol"],
                                 "side": "SELL",
@@ -656,10 +822,17 @@ if __name__ == "__main__":
             print("Portfolio After Selling 100%:", client.view_portfolio())
             
             # Example: Fetch trades in time range
-            trades = client.get_trades_in_time_range(
+            # trades = client.get_trades_in_time_range(
+            #     "2025-05-25 12:00:00",
+            #     "2025-05-25 14:18:00"
+            # )
+            # print("Trades in Time Range:", json.dumps(trades, indent=2))
+            
+            # Calculate PNL
+            pnl = client.calculate_pnl_in_time_range(
                 "2025-05-25 12:00:00",
                 "2025-05-25 14:18:00"
             )
-            print("Trades in Time Range:", json.dumps(trades, indent=2))
+            print("PNL Report:", json.dumps(pnl, indent=2))
     except Exception as e:
         logging.error(f"Script execution failed: {e}")
