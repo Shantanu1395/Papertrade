@@ -119,6 +119,20 @@ class PaperTradingClient:
         print(json.dumps(balances, indent=2))
         return balances
 
+    def view_usdt_balance(self):
+        try:
+            response = self._make_request("GET", "/v3/account", signed=True)
+            for b in response.get("balances", []):
+                if b["asset"] == "USDT":
+                    usdt_balance = float(b["free"])
+                    logging.info(f"USDT balance: {usdt_balance}")
+                    return usdt_balance
+            logging.warning("USDT balance not found")
+            return 0.0
+        except TradingAPIError as e:
+            logging.error(f"Failed to fetch USDT balance: {e}")
+            return 0.0
+
     def view_all_currency_pairs(self):
         try:
             response = self._make_request("GET", "/v3/exchangeInfo", params={})
@@ -380,6 +394,6 @@ if __name__ == "__main__":
             # market_order = client.place_market_order('ETH/USDT', 'BUY', quote_order_qty=1000)
             # print("Market Order:", market_order)
             # print("USDT Balance After Selling All:", client.sell_all_to_usdt())
-            print("Account Balances:", client.view_account_balance())
+            print("USDT Balance:", client.view_usdt_balance())
     except Exception as e:
         logging.error(f"Script execution failed: {e}")
