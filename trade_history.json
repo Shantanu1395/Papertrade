@@ -1,0 +1,110 @@
+[
+  {
+    "symbol": "ETHUSDT",
+    "side": "BUY",
+    "quantity": 0.4024,
+    "price": 2484.61,
+    "quoteQty": 999.807064,
+    "commission": 0.0,
+    "commissionAsset": "ETH",
+    "time": 1748160675122,
+    "tradeId": 4330775,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "SELL",
+    "quantity": 0.2012,
+    "price": 2484.3,
+    "quoteQty": 499.84116,
+    "commission": 0.0,
+    "commissionAsset": "USDT",
+    "time": 1748160677734,
+    "tradeId": 4330784,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "SELL",
+    "quantity": 0.2012,
+    "price": 2484.3,
+    "quoteQty": 499.84116,
+    "commission": 0.0,
+    "commissionAsset": "USDT",
+    "time": 1748160680479,
+    "tradeId": 4330792,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "BUY",
+    "quantity": 0.4024,
+    "price": 2484.9300000000003,
+    "quoteQty": 999.935832,
+    "commission": 0.0,
+    "commissionAsset": "ETH",
+    "time": 1748160894589,
+    "tradeId": 4331188,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "SELL",
+    "quantity": 0.2012,
+    "price": 2484.5148409542744,
+    "quoteQty": 499.884386,
+    "commission": 0.0,
+    "commissionAsset": "USDT",
+    "time": 1748160897082,
+    "tradeId": 4331196,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "SELL",
+    "quantity": 0.2012,
+    "price": 2484.51,
+    "quoteQty": 499.883412,
+    "commission": 0.0,
+    "commissionAsset": "USDT",
+    "time": 1748160899264,
+    "tradeId": 4331197,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "BUY",
+    "quantity": 0.4026,
+    "price": 2483.25,
+    "quoteQty": 999.75645,
+    "commission": 0.0,
+    "commissionAsset": "ETH",
+    "time": 1748160926514,
+    "tradeId": 4331275,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "SELL",
+    "quantity": 0.2013,
+    "price": 2483.19,
+    "quoteQty": 499.866147,
+    "commission": 0.0,
+    "commissionAsset": "USDT",
+    "time": 1748160929246,
+    "tradeId": 4331286,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "SELL",
+    "quantity": 0.2013,
+    "price": 2483.19,
+    "quoteQty": 499.866147,
+    "commission": 0.0,
+    "commissionAsset": "USDT",
+    "time": 1748160930705,
+    "tradeId": 4331290,
+    "orderType": "MARKET"
+  }
+]

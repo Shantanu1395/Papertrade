@@ -9,6 +9,7 @@ from decimal import Decimal, ROUND_DOWN
 from dotenv import load_dotenv
 import json
 import threading
+from datetime import datetime
 
 load_dotenv()
 
@@ -35,6 +36,8 @@ class PaperTradingClient:
             logging.warning("Failed to fetch valid trading pairs, using fallback: BTCUSDT, ETHUSDT")
         else:
             logging.info(f"Successfully fetched {len(self.valid_pairs)} trading pairs")
+        self.trade_history_file = 'trade_history.json'
+        self.file_lock = threading.Lock()
 
     def __enter__(self):
         return self
@@ -75,6 +78,29 @@ class PaperTradingClient:
             logging.error(f"Response: {response.text if 'response' in locals() else 'No response'}")
             raise TradingAPIError(f"API request failed: {str(e).split('Authorization')[0]}")
 
+    def _save_trade_to_json(self, trade_data):
+        """Save trade details to trade_history.json in a thread-safe manner."""
+        try:
+            with self.file_lock:
+                # Load existing trade history or initialize empty list
+                trade_history = []
+                if os.path.exists(self.trade_history_file):
+                    try:
+                        with open(self.trade_history_file, 'r') as f:
+                            trade_history = json.load(f)
+                    except (json.JSONDecodeError, IOError) as e:
+                        logging.warning(f"Failed to read trade_history.json: {e}. Starting with empty history.")
+                
+                # Append new trade
+                trade_history.append(trade_data)
+                
+                # Write back to file
+                with open(self.trade_history_file, 'w') as f:
+                    json.dump(trade_history, f, indent=2)
+                logging.info(f"Saved trade to {self.trade_history_file}: {trade_data['symbol']} {trade_data['side']}")
+        except Exception as e:
+            logging.error(f"Failed to save trade to {self.trade_history_file}: {e}")
+
     def _get_symbol_precision(self, symbol):
         response = self._make_request("GET", "/v3/exchangeInfo")
         if response:
@@ -112,11 +138,10 @@ class PaperTradingClient:
         response = self._make_request("GET", "/v3/account", signed=True)
         balances = [
             {"asset": b["asset"], "free": float(b["free"]), "locked": float(b["locked"])}
-            for b in response.get("balances", [])
-            if float(b["free"]) > 0 or float(b["locked"]) > 0
+            for b in response.get("balances", []) if float(b["free"]) > 0 or float(b["locked"]) > 0
         ]
-        logging.info(f"Account balances: {balances}")
-        print(json.dumps(balances, indent=2))
+        # logging.info(f"Account balances: {balances}")
+        # print(json.dumps(balances, indent=2))
         return balances
 
     def view_usdt_balance(self):
@@ -132,6 +157,33 @@ class PaperTradingClient:
         except TradingAPIError as e:
             logging.error(f"Failed to fetch USDT balance: {e}")
             return 0.0
+
+    def view_portfolio(self):
+        exclusion_file = 'excluded_currencies.json'
+        with self.file_lock:
+            if os.path.exists(exclusion_file):
+                try:
+                    with open(exclusion_file, 'r') as f:
+                        excluded_currencies = json.load(f)
+                except Exception as e:
+                    logging.error(f"Failed to load exclusion list: {e}")
+                    excluded_currencies = []
+            else:
+                excluded_currencies = []
+        
+        try:
+            response = self._make_request("GET", "/v3/account", signed=True)
+            portfolio = [
+                {"asset": b["asset"], "free": float(b["free"]), "locked": float(b["locked"])}
+                for b in response.get("balances", [])
+                if (float(b["free"]) > 0 or float(b["locked"]) > 0) and b["asset"] != "USDT" and b["asset"] not in excluded_currencies
+            ]
+            logging.info(f"Portfolio: {portfolio}")
+            print(json.dumps(portfolio, indent=2))
+            return portfolio
+        except TradingAPIError as e:
+            logging.error(f"Failed to fetch portfolio: {e}")
+            return []
 
     def view_all_currency_pairs(self):
         try:
@@ -181,14 +233,14 @@ class PaperTradingClient:
                     continue
                 trades = []
                 for t in response:
-                    required_keys = ['symbol', 'side', 'price', 'qty', 'quoteQty', 'commission', 'commissionAsset', 'time', 'id']
+                    required_keys = ['symbol', 'price', 'qty', 'quoteQty', 'commission', 'commissionAsset', 'time', 'id']
                     if not all(key in t for key in required_keys):
                         logging.warning(f"Skipping invalid trade for {symbol}: {t}")
                         continue
                     try:
                         trade = {
                             "symbol": t["symbol"],
-                            "side": t["side"],
+                            "side": "BUY" if t["isBuyer"] else "SELL",
                             "price": float(t["price"]),
                             "qty": float(t["qty"]),
                             "quoteQty": float(t["quoteQty"]),
@@ -202,12 +254,77 @@ class PaperTradingClient:
                         logging.warning(f"Error processing trade for {symbol}: {e}, Trade: {t}")
                         continue
                 all_trades.extend(trades)
-                logging.info(f"Fetched {len(trades)} trades for {symbol}")
+                if trades:
+                    logging.info(f"Fetched {len(trades)} trades for {symbol}")
             except TradingAPIError as e:
                 logging.error(f"API error for {symbol}: {e}")
                 continue
         logging.info(f"Total fulfilled orders: {len(all_trades)}")
         return sorted(all_trades, key=lambda x: x["time"])
+
+    def get_trades_in_time_range(self, start_time, end_time):
+        """Retrieve trades from trade_history.json within the specified time range."""
+        # Convert datetime strings or timestamps to milliseconds
+        def to_timestamp(t):
+            if isinstance(t, str):
+                try:
+                    dt = datetime.strptime(t, "%Y-%m-%d %H:%M:%S")
+                    return int(dt.timestamp() * 1000)
+                except ValueError:
+                    raise ValueError(f"Invalid time format: {t}. Use 'YYYY-MM-DD HH:MM:SS' or milliseconds")
+            return int(t)
+        
+        start_ms = to_timestamp(start_time)
+        end_ms = to_timestamp(end_time)
+        
+        if start_ms >= end_ms:
+            raise ValueError(f"start_time ({start_time}) must be before end_time ({end_time})")
+        
+        logging.info(f"Fetching trades from {self.trade_history_file} for time range {start_time} to {end_time}")
+        
+        # Load trade history from JSON
+        trades = []
+        try:
+            with self.file_lock:
+                if os.path.exists(self.trade_history_file):
+                    with open(self.trade_history_file, 'r') as f:
+                        trades = json.load(f)
+                else:
+                    logging.warning(f"{self.trade_history_file} does not exist. No trades found.")
+                    return []
+        except (json.JSONDecodeError, IOError) as e:
+            logging.error(f"Failed to read {self.trade_history_file}: {e}")
+            return []
+        
+        # Filter trades within the time range
+        filtered_trades = []
+        for trade in trades:
+            if not isinstance(trade, dict) or 'time' not in trade:
+                logging.warning(f"Skipping invalid trade entry: {trade}")
+                continue
+            try:
+                trade_time = int(trade['time'])
+                if start_ms <= trade_time <= end_ms:
+                    # Ensure all required fields are present and properly typed
+                    filtered_trade = {
+                        "symbol": str(trade.get('symbol', '')),
+                        "side": str(trade.get('side', '')),
+                        "price": float(trade.get('price', 0.0)),
+                        "quantity": float(trade.get('quantity', 0.0)),
+                        "quoteQty": float(trade.get('quoteQty', 0.0)),
+                        "commission": float(trade.get('commission', 0.0)),
+                        "commissionAsset": str(trade.get('commissionAsset', '')),
+                        "time": trade_time,
+                        "tradeId": str(trade.get('tradeId', '')),
+                        "orderType": str(trade.get('orderType', ''))
+                    }
+                    filtered_trades.append(filtered_trade)
+            except (ValueError, TypeError) as e:
+                logging.warning(f"Error processing trade: {trade}, Error: {e}")
+                continue
+        
+        logging.info(f"Retrieved {len(filtered_trades)} trades from {self.trade_history_file} in time range")
+        return sorted(filtered_trades, key=lambda x: x["time"])
 
     def place_limit_order(self, symbol, side, quantity, price):
         self._validate_order_params(symbol, side, quantity=quantity, price=price)
@@ -238,6 +355,21 @@ class PaperTradingClient:
                 "commission": float(response.get("fills", [{}])[0].get("commission", 0))
             }
             logging.info(f"Placed limit order: {order}")
+            # Save trade to JSON if order is filled
+            if response.get("status") == "FILLED":
+                trade_data = {
+                    "symbol": order["symbol"],
+                    "side": order["side"],
+                    "quantity": order["quantity"],
+                    "price": order["price"],
+                    "quoteQty": float(response.get("cummulativeQuoteQty", order["quantity"] * order["price"])),
+                    "commission": order["commission"],
+                    "commissionAsset": response.get("fills", [{}])[0].get("commissionAsset", "Unknown"),
+                    "time": order["time"],
+                    "tradeId": response.get("orderId"),
+                    "orderType": order["type"]
+                }
+                self._save_trade_to_json(trade_data)
             return order
         logging.error(f"Failed to place limit order for {symbol}")
         return None
@@ -245,7 +377,7 @@ class PaperTradingClient:
     def place_market_order(self, symbol, side, quantity=None, quote_order_qty=None):
         self._validate_order_params(symbol, side, quantity=quantity, quote_order_qty=quote_order_qty)
         symbol = symbol.replace("/", "")
-        quantity_precision, _ = self._get_symbol_precision(symbol)
+        quantity_precision, _, _ = self._get_symbol_precision(symbol)
         params = {
             "symbol": symbol,
             "side": side.upper(),
@@ -273,9 +405,64 @@ class PaperTradingClient:
                 "commission": float(response.get("fills", [{}])[0].get("commission", 0))
             }
             logging.info(f"Placed market order: {order}")
+            # Save trade to JSON
+            trade_data = {
+                "symbol": order["symbol"],
+                "side": order["side"],
+                "quantity": order["executedQty"],
+                "price": order["quoteQty"] / order["executedQty"] if order["executedQty"] > 0 else 0.0,
+                "quoteQty": order["quoteQty"],
+                "commission": order["commission"],
+                "commissionAsset": response.get("fills", [{}])[0].get("commissionAsset", "Unknown"),
+                "time": order["time"],
+                "tradeId": order["orderId"],
+                "orderType": order["type"]
+            }
+            self._save_trade_to_json(trade_data)
             return order
         logging.error(f"Failed to place market order for {symbol}")
         return None
+
+    def sell_asset_by_percentage(self, symbol, percentage=100):
+        """Sell a percentage of the available asset for the given trading pair."""
+        if not 0 < percentage <= 100:
+            raise ValueError(f"Percentage must be between 0 and 100, got {percentage}")
+        
+        base_asset = symbol.split('/')[0]
+        symbol = symbol.replace("/", "")
+        
+        if symbol not in self.valid_pairs:
+            logging.error(f"Invalid trading pair: {symbol}")
+            return None
+        
+        balances = self.view_account_balance()
+        asset_balance = next((b["free"] for b in balances if b["asset"] == base_asset), 0)
+        
+        if asset_balance <= 0:
+            logging.info(f"No {base_asset} available to sell")
+            print(f"No {base_asset} available to sell")
+            return None
+        
+        quantity = asset_balance * (percentage / 100)
+        quantity_precision, _, min_notional = self._get_symbol_precision(symbol)
+        quantity = float(Decimal(str(quantity)).quantize(Decimal(f"0.{'0' * quantity_precision}"), rounding=ROUND_DOWN))
+        
+        price = self.view_current_price(symbol)
+        if price is None:
+            logging.error(f"Failed to fetch price for {symbol}")
+            return None
+        
+        notional = quantity * price
+        if notional < min_notional:
+            logging.warning(f"Skipping sell: Notional value {notional} USDT below minimum {min_notional} USDT")
+            print(f"Cannot sell: Notional value {notional} USDT below minimum {min_notional} USDT")
+            return None
+        
+        logging.info(f"Selling {percentage}% of {base_asset} ({quantity} {base_asset})")
+        print(f"Selling {percentage}% of {base_asset} ({quantity} {base_asset})")
+        order = self.place_market_order(symbol, 'SELL', quantity=quantity)
+        # No need to save to JSON here, as place_market_order already handles it
+        return order
 
     def view_open_orders(self, symbol=None):
         params = {}
@@ -307,19 +494,18 @@ class PaperTradingClient:
 
     def sell_all_to_usdt(self):
         exclusion_file = 'excluded_currencies.json'
-        file_lock = threading.Lock()
-        try:
-            with file_lock:
-                if os.path.exists(exclusion_file):
+        with self.file_lock:
+            if os.path.exists(exclusion_file):
+                try:
                     with open(exclusion_file, 'r') as f:
                         excluded_currencies = json.load(f)
-                else:
+                except Exception as e:
+                    logging.error(f"Failed to load exclusion list: {e}")
                     excluded_currencies = []
-                    with open(exclusion_file, 'w') as f:
-                        json.dump(excluded_currencies, f, indent=2)
-        except Exception as e:
-            logging.error(f"Failed to load exclusion list: {e}")
-            excluded_currencies = []
+            else:
+                excluded_currencies = []
+                with open(exclusion_file, 'w') as f:
+                    json.dump(excluded_currencies, f, indent=2)
         
         balances = self.view_account_balance()
         usdt_balance = next((b["free"] for b in balances if b["asset"] == "USDT"), 0)
@@ -336,17 +522,26 @@ class PaperTradingClient:
                     price = self.view_current_price(symbol)
                     if price is None:
                         logging.warning(f"Skipping {asset}: Failed to fetch price")
+                        try:
+                            with self.file_lock:
+                                if asset not in excluded_currencies:
+                                    excluded_currencies.append(asset)
+                                    with open(exclusion_file, 'w') as f:
+                                        json.dump(excluded_currencies, f, indent=2)
+                                    logging.info(f"Added {asset} to exclusion list: No price available")
+                        except Exception as e:
+                            logging.error(f"Failed to update exclusion list for {asset}: {e}")
                         continue
                     notional = quantity * price
                     if notional < min_notional:
                         logging.warning(f"Skipping {asset}: Notional value {notional} USDT below minimum {min_notional} USDT")
                         try:
-                            with file_lock:
+                            with self.file_lock:
                                 if asset not in excluded_currencies:
                                     excluded_currencies.append(asset)
                                     with open(exclusion_file, 'w') as f:
                                         json.dump(excluded_currencies, f, indent=2)
-                                    logging.info(f"Added {asset} to exclusion list")
+                                    logging.info(f"Added {asset} to exclusion list: Below min_notional")
                         except Exception as e:
                             logging.error(f"Failed to update exclusion list for {asset}: {e}")
                         continue
@@ -363,10 +558,53 @@ class PaperTradingClient:
                             value = float(response["cummulativeQuoteQty"])
                             usdt_balance += value
                             logging.info(f"Sold {quantity} {asset} for {value} USDT")
+                            # Save trade to JSON
+                            trade_data = {
+                                "symbol": response["symbol"],
+                                "side": "SELL",
+                                "quantity": float(response["executedQty"]),
+                                "price": value / float(response["executedQty"]) if float(response["executedQty"]) > 0 else 0.0,
+                                "quoteQty": value,
+                                "commission": float(response.get("fills", [{}])[0].get("commission", 0)),
+                                "commissionAsset": response.get("fills", [{}])[0].get("commissionAsset", "Unknown"),
+                                "time": response["transactTime"],
+                                "tradeId": response["orderId"],
+                                "orderType": "MARKET"
+                            }
+                            self._save_trade_to_json(trade_data)
                         else:
                             logging.error(f"Failed to sell {asset}: {response}")
+                            try:
+                                with self.file_lock:
+                                    if asset not in excluded_currencies:
+                                        excluded_currencies.append(asset)
+                                        with open(exclusion_file, 'w') as f:
+                                            json.dump(excluded_currencies, f, indent=2)
+                                        logging.info(f"Added {asset} to exclusion list: Sell failed")
+                            except Exception as e:
+                                logging.error(f"Failed to update exclusion list for {asset}: {e}")
                     except TradingAPIError as e:
                         logging.error(f"Failed to sell {asset}: {e}")
+                        try:
+                            with self.file_lock:
+                                if asset not in excluded_currencies:
+                                    excluded_currencies.append(asset)
+                                    with open(exclusion_file, 'w') as f:
+                                        json.dump(excluded_currencies, f, indent=2)
+                                    logging.info(f"Added {asset} to exclusion list: API error")
+                        except Exception as e:
+                            logging.error(f"Failed to update exclusion list for {asset}: {e}")
+                else:
+                    logging.warning(f"Skipping {asset}: {symbol} not in valid trading pairs")
+                    try:
+                        with self.file_lock:
+                            if asset not in excluded_currencies:
+                                excluded_currencies.append(asset)
+                                with open(exclusion_file, 'w') as f:
+                                    json.dump(excluded_currencies, f, indent=2)
+                                logging.info(f"Added {asset} to exclusion list: Invalid trading pair")
+                    except Exception as e:
+                        logging.error(f"Failed to update exclusion list for {asset}: {e}")
         final_balance = self.view_account_balance()
         usdt_final = next((b["free"] for b in final_balance if b["asset"] == "USDT"), usdt_balance)
         logging.info(f"Total USDT after selling: {usdt_final}")
@@ -391,9 +629,37 @@ if __name__ == "__main__":
             # print("Open Orders:", client.view_open_orders())
             # limit_order = client.place_limit_order(symbol, 'BUY', 0.01, 100000)
             # print("Limit Order:", limit_order)
-            # market_order = client.place_market_order('ETH/USDT', 'BUY', quote_order_qty=1000)
-            # print("Market Order:", market_order)
             # print("USDT Balance After Selling All:", client.sell_all_to_usdt())
-            print("USDT Balance:", client.view_usdt_balance())
+
+
+            # Buying and selling in percentages
+            #################################
+            print("Initial USDT Balance:", client.view_usdt_balance())
+            print("Initial Portfolio:", client.view_portfolio())
+            
+            # Buy 1000 USDT worth of ETH
+            buy_order = client.place_market_order('ETH/USDT', 'BUY', quote_order_qty=1000)
+            print("Buy Market Order:", buy_order)
+            print("USDT Balance After Buy:", client.view_usdt_balance())
+            print("Portfolio After Buy:", client.view_portfolio())
+            
+            # Sell 50% of ETH
+            sell_order_50 = client.sell_asset_by_percentage('ETH/USDT', percentage=50)
+            print("Sell 50% Market Order:", sell_order_50)
+            print("USDT Balance After Selling 50%:", client.view_usdt_balance())
+            print("Portfolio After Selling 50%:", client.view_portfolio())
+            
+            # Sell 100% of remaining ETH
+            sell_order_100 = client.sell_asset_by_percentage('ETH/USDT')
+            print("Sell 100% Market Order:", sell_order_100)
+            print("USDT Balance After Selling 100%:", client.view_usdt_balance())
+            print("Portfolio After Selling 100%:", client.view_portfolio())
+            
+            # Example: Fetch trades in time range
+            trades = client.get_trades_in_time_range(
+                "2025-05-25 12:00:00",
+                "2025-05-25 14:18:00"
+            )
+            print("Trades in Time Range:", json.dumps(trades, indent=2))
     except Exception as e:
         logging.error(f"Script execution failed: {e}")
