@@ -4,8 +4,13 @@ from datetime import datetime
 
 class Balance(BaseModel):
     asset: str
-    free: float
-    locked: float
+    free: float = Field(..., description="Free balance")
+    locked: float = Field(..., description="Locked balance")
+
+    class Config:
+        json_encoders = {
+            float: lambda v: round(v, 2)
+        }
 
 class OrderRequest(BaseModel):
     symbol: str
@@ -38,9 +43,19 @@ class PriceResponse(BaseModel):
     price: float
 
 class USDTBalanceResponse(BaseModel):
-    balance: float
+    balance: float = Field(..., description="USDT balance rounded to 2 decimal places")
+
+    class Config:
+        json_encoders = {
+            float: lambda v: round(v, 2)
+        }
 
 class SellAllResponse(BaseModel):
-    usdt_balance: float
+    usdt_balance: float = Field(..., description="Final USDT balance after selling all assets")
+
+    class Config:
+        json_encoders = {
+            float: lambda v: round(v, 2)
+        }
 
 # Add more models as needed for specific responses

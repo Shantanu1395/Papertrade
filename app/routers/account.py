@@ -18,9 +18,14 @@ async def get_account_balance(client: PaperTradingClient = Depends(get_trading_c
     except TradingAPIError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-@router.get("/usdt-balance", response_model=float)
+@router.get("/usdt-balance", response_model=USDTBalanceResponse)
 async def get_usdt_balance(client: PaperTradingClient = Depends(get_trading_client)):
-    return client.view_usdt_balance()
+    """Get USDT balance formatted to 2 decimal places."""
+    try:
+        balance = client.view_usdt_balance()
+        return USDTBalanceResponse(balance=round(balance, 2))
+    except TradingAPIError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 @router.get("/portfolio", response_model=List[Balance])
 async def get_portfolio(client: PaperTradingClient = Depends(get_trading_client)):

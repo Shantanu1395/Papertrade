@@ -3,41 +3,61 @@ import logging
 import time
 import hashlib
 import hmac
-from urllib.parse import urlencode
 import os
-from decimal import Decimal, ROUND_DOWN
-from dotenv import load_dotenv
 import json
 import threading
+from urllib.parse import urlencode
+from decimal import Decimal, ROUND_DOWN
 from datetime import datetime
-from collections import defaultdict, deque
+from collections import defaultdict
+from typing import Dict, List, Optional, Any
 
-load_dotenv()
+from app.core import (
+    settings,
+    TradingAPIError,
+    InvalidSymbolError,
+    OrderValidationError,
+    file_manager,
+    to_timestamp,
+    validate_symbol,
+    validate_side,
+    validate_positive_number
+)
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-class TradingAPIError(Exception):
-    pass
-
 class PaperTradingClient:
-    def __init__(self, config):
-        self.api_key = config['api_key']
-        self.api_secret = config.get('api_secret') or os.getenv('TRADING_API_SECRET')
-        if not self.api_secret:
-            raise ValueError("API secret must be provided in config or TRADING_API_SECRET env variable")
-        self.base_url = "https://testnet.binance.vision/api" if config.get('testnet', True) else "https://api.binance.com/api"
-        self.brokerage_fee = config.get('brokerage_fee', 0.001)
-        self.symbols = config.get('symbols', [])
-        self.recv_window = config.get('recv_window', 10000)
+    def __init__(self, config: Optional[Dict] = None):
+        # Use config or fall back to global settings
+        if config is None:
+            config = {}
+
+        self.api_key = config.get('api_key') or settings.binance_api_key
+        self.api_secret = config.get('api_secret') or settings.binance_api_secret
+
+        if not self.api_key or not self.api_secret:
+            raise ValueError("API key and secret must be provided in config or environment variables")
+
+        self.base_url = settings.binance_base_url if config.get('testnet', settings.binance_testnet) else "https://api.binance.com/api"
+        self.brokerage_fee = config.get('brokerage_fee', settings.default_brokerage_fee)
+        self.symbols = config.get('symbols', settings.default_symbols)
+        self.recv_window = config.get('recv_window', settings.binance_recv_window)
+
+        # Initialize HTTP session
         self.session = requests.Session()
         self.session.headers.update({"X-MBX-APIKEY": self.api_key})
+
+        # Initialize valid trading pairs
         self.valid_pairs = self.view_all_currency_pairs()
         if not self.valid_pairs:
-            self.valid_pairs = ['BTCUSDT', 'ETHUSDT']
-            logging.warning("Failed to fetch valid trading pairs, using fallback: BTCUSDT, ETHUSDT")
+            self.valid_pairs = settings.default_symbols
+            logging.warning(f"Failed to fetch valid trading pairs, using fallback: {settings.default_symbols}")
         else:
             logging.info(f"Successfully fetched {len(self.valid_pairs)} trading pairs")
-        self.trade_history_file = 'trade_history.json'
+
+        # File paths using settings
+        self.trade_history_file = settings.trade_history_file
+        self.excluded_currencies_file = settings.excluded_currencies_file
         self.file_lock = threading.Lock()
 
     def __enter__(self):
@@ -88,23 +108,12 @@ class PaperTradingClient:
             raise TradingAPIError(error_msg)
 
     def _save_trade_to_json(self, trade_data):
-        with self.file_lock:
-            trades = []
-            if os.path.exists(self.trade_history_file):
-                try:
-                    with open(self.trade_history_file, 'r') as f:
-                        trades = json.load(f)
-                except Exception as e:
-                    logging.error(f"Failed to load trade history: {e}")
-
-            trades.append(trade_data)
-
-            try:
-                with open(self.trade_history_file, 'w') as f:
-                    json.dump(trades, f, indent=2)
-                logging.info(f"Trade saved to {self.trade_history_file}")
-            except Exception as e:
-                logging.error(f"Failed to save trade history: {e}")
+        """Save trade data to JSON file using file manager."""
+        success = file_manager.append_json_list("trade_history.json", trade_data)
+        if success:
+            logging.info(f"Trade saved to {self.trade_history_file}")
+        else:
+            logging.error(f"Failed to save trade to {self.trade_history_file}")
 
     def _get_symbol_precision(self, symbol):
         try:
@@ -152,18 +161,8 @@ class PaperTradingClient:
             raise ValueError(f"Invalid price: {price}. Must be greater than 0")
 
     def view_account_balance(self):
-        # Load exclusion list
-        exclusion_file = 'excluded_currencies.json'
-        with self.file_lock:
-            if os.path.exists(exclusion_file):
-                try:
-                    with open(exclusion_file, 'r') as f:
-                        excluded_currencies = json.load(f)
-                except Exception as e:
-                    logging.error(f"Failed to load exclusion list: {e}")
-                    excluded_currencies = []
-            else:
-                excluded_currencies = []
+        """Get account balance excluding currencies in exclusion list."""
+        excluded_currencies = file_manager.read_json("excluded_currencies.json", [])
 
         response = self._make_request("GET", "/v3/account", signed=True)
         balances = [
@@ -189,24 +188,17 @@ class PaperTradingClient:
             return 0.0
 
     def view_portfolio(self):
-        exclusion_file = 'excluded_currencies.json'
-        with self.file_lock:
-            if os.path.exists(exclusion_file):
-                try:
-                    with open(exclusion_file, 'r') as f:
-                        excluded_currencies = json.load(f)
-                except Exception as e:
-                    logging.error(f"Failed to load exclusion list: {e}")
-                    excluded_currencies = []
-            else:
-                excluded_currencies = []
+        """Get portfolio (non-USDT assets) excluding currencies in exclusion list."""
+        excluded_currencies = file_manager.read_json("excluded_currencies.json", [])
 
         try:
             response = self._make_request("GET", "/v3/account", signed=True)
             portfolio = [
                 {"asset": b["asset"], "free": float(b["free"]), "locked": float(b["locked"])}
                 for b in response.get("balances", [])
-                if (float(b["free"]) > 0 or float(b["locked"]) > 0) and b["asset"] != "USDT" and b["asset"] not in excluded_currencies
+                if (float(b["free"]) > 0 or float(b["locked"]) > 0)
+                and b["asset"] != "USDT"
+                and b["asset"] not in excluded_currencies
             ]
             return portfolio
         except TradingAPIError as e:
@@ -232,90 +224,57 @@ class PaperTradingClient:
             raise
 
     def view_all_fulfilled_orders(self):
+        """Get all fulfilled orders from trade history."""
         try:
-            with self.file_lock:
-                if not os.path.exists(self.trade_history_file):
-                    return []
+            trades = file_manager.read_json("trade_history.json", [])
 
-                try:
-                    with open(self.trade_history_file, 'r') as f:
-                        trades = json.load(f)
+            # Format trades for display
+            formatted_trades = []
+            for trade in trades:
+                formatted_trade = {
+                    "symbol": trade["symbol"],
+                    "side": trade["side"],
+                    "quantity": trade["quantity"],
+                    "price": trade["price"],
+                    "quoteQty": trade.get("quoteQty", trade["quantity"] * trade["price"]),
+                    "commission": trade.get("commission", 0),
+                    "commissionAsset": trade.get("commissionAsset", "Unknown"),
+                    "time": trade["time"],
+                    "tradeId": trade.get("tradeId", "Unknown"),
+                    "orderType": trade.get("orderType", "Unknown")
+                }
+                formatted_trades.append(formatted_trade)
 
-                    # Format trades for display
-                    formatted_trades = []
-                    for trade in trades:
-                        formatted_trade = {
-                            "symbol": trade["symbol"],
-                            "side": trade["side"],
-                            "quantity": trade["quantity"],
-                            "price": trade["price"],
-                            "quoteQty": trade.get("quoteQty", trade["quantity"] * trade["price"]),
-                            "commission": trade.get("commission", 0),
-                            "commissionAsset": trade.get("commissionAsset", "Unknown"),
-                            "time": trade["time"],
-                            "tradeId": trade.get("tradeId", "Unknown"),
-                            "orderType": trade.get("orderType", "Unknown")
-                        }
-                        formatted_trades.append(formatted_trade)
-
-                    return formatted_trades
-                except Exception as e:
-                    logging.error(f"Failed to load trade history: {e}")
-                    return []
+            return formatted_trades
         except Exception as e:
             logging.error(f"Failed to fetch fulfilled orders: {e}")
             return []
 
     def get_trades_in_time_range(self, start_time, end_time):
-        def to_timestamp(t):
-            if isinstance(t, str):
-                try:
-                    dt = datetime.strptime(t, "%Y-%m-%d %H:%M:%S")
-                    return int(dt.timestamp() * 1000)
-                except ValueError:
-                    raise ValueError(f"Invalid time format: {t}. Expected format: YYYY-MM-DD HH:MM:SS")
-            return t
-
+        """Get trades within a specific time range."""
         start_ts = to_timestamp(start_time)
         end_ts = to_timestamp(end_time)
 
         try:
-            with self.file_lock:
-                if not os.path.exists(self.trade_history_file):
-                    return []
+            all_trades = file_manager.read_json("trade_history.json", [])
 
-                try:
-                    with open(self.trade_history_file, 'r') as f:
-                        all_trades = json.load(f)
+            # Filter trades by time range
+            filtered_trades = []
+            for trade in all_trades:
+                trade_time = trade["time"]
+                if start_ts <= trade_time <= end_ts:
+                    filtered_trades.append(trade)
 
-                    # Filter trades by time range
-                    filtered_trades = []
-                    for trade in all_trades:
-                        trade_time = trade["time"]
-                        if start_ts <= trade_time <= end_ts:
-                            filtered_trades.append(trade)
+            # Sort by time
+            filtered_trades.sort(key=lambda x: x["time"])
 
-                    # Sort by time
-                    filtered_trades.sort(key=lambda x: x["time"])
-
-                    return filtered_trades
-                except Exception as e:
-                    logging.error(f"Failed to load trade history: {e}")
-                    return []
+            return filtered_trades
         except Exception as e:
             logging.error(f"Failed to fetch trades in time range: {e}")
             return []
 
     def calculate_pnl_in_time_range(self, start_time, end_time):
-        def to_timestamp(t):
-            if isinstance(t, str):
-                try:
-                    dt = datetime.strptime(t, "%Y-%m-%d %H:%M:%S")
-                    return int(dt.timestamp() * 1000)
-                except ValueError:
-                    raise ValueError(f"Invalid time format: {t}. Expected format: YYYY-MM-DD HH:MM:SS")
-            return t
-
+        """Calculate PnL for trades within a specific time range."""
         start_ts = to_timestamp(start_time)
         end_ts = to_timestamp(end_time)
 

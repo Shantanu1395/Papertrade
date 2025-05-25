@@ -250,5 +250,89 @@
     "time": 1748172980647,
     "tradeId": 4371162,
     "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "BUY",
+    "quantity": 0.0397,
+    "price": 2515.01,
+    "quoteQty": 99.845897,
+    "commission": 0.0,
+    "commissionAsset": "ETH",
+    "time": 1748176856135,
+    "tradeId": 4384453,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "SELL",
+    "quantity": 0.0397,
+    "price": 2514.7,
+    "quoteQty": 99.83359,
+    "commission": 0.0,
+    "commissionAsset": "USDT",
+    "time": 1748176858116,
+    "tradeId": 4384464,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "BUY",
+    "quantity": 0.0397,
+    "price": 2515.0,
+    "quoteQty": 99.8455,
+    "commission": 0.0,
+    "commissionAsset": "ETH",
+    "time": 1748177076067,
+    "tradeId": 4385338,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "SELL",
+    "quantity": 0.0397,
+    "price": 2514.99,
+    "quoteQty": 99.845103,
+    "commission": 0.0,
+    "commissionAsset": "USDT",
+    "time": 1748177078129,
+    "tradeId": 4385344,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "BUY",
+    "quantity": 0.0397,
+    "price": 2515.89,
+    "quoteQty": 99.880833,
+    "commission": 0.0,
+    "commissionAsset": "ETH",
+    "time": 1748177160987,
+    "tradeId": 4385690,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "SELL",
+    "quantity": 0.0397,
+    "price": 2515.8,
+    "quoteQty": 99.87726,
+    "commission": 0.0,
+    "commissionAsset": "USDT",
+    "time": 1748177163099,
+    "tradeId": 4385697,
+    "orderType": "MARKET"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "side": "BUY",
+    "quantity": 0.3976,
+    "price": 2514.9,
+    "quoteQty": 999.92424,
+    "commission": 0.0,
+    "commissionAsset": "ETH",
+    "time": 1748177600025,
+    "tradeId": 4386790,
+    "orderType": "MARKET"
   }
 ]

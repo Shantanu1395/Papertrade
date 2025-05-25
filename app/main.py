@@ -1,7 +1,11 @@
+"""
+Main FastAPI application.
+"""
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import logging
 
+from app.core import settings
 from app.routers import account, market, orders, trades, workflow_test
 
 # Configure logging
@@ -9,18 +13,18 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 # Create FastAPI app
 app = FastAPI(
-    title="Paper Trading API",
-    description="API for paper trading on cryptocurrency exchanges",
-    version="1.0.0"
+    title=settings.api_title,
+    description=settings.api_description,
+    version=settings.api_version
 )
 
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=settings.cors_origins,
+    allow_credentials=settings.cors_credentials,
+    allow_methods=settings.cors_methods,
+    allow_headers=settings.cors_headers,
 )
 
 # Include routers

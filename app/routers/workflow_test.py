@@ -415,38 +415,35 @@ async def run_workflow_test(
                 ]
                 message = f"DRY RUN: Simulated 2 trades in history"
             else:
-                # Get trades from last 15 minutes
-                end_time = datetime.now()
-                start_time = end_time - timedelta(minutes=15)
+                # Get trades from workflow start time to now
+                workflow_end_time = datetime.now()
+                # Use the workflow start time (not a fixed 15-minute window)
+                workflow_start_time = start_time  # This is the workflow start time from the beginning
 
                 # Convert to string format that the trading client expects
-                start_time_str = start_time.strftime("%Y-%m-%d %H:%M:%S")
-                end_time_str = end_time.strftime("%Y-%m-%d %H:%M:%S")
+                start_time_str = workflow_start_time.strftime("%Y-%m-%d %H:%M:%S")
+                end_time_str = workflow_end_time.strftime("%Y-%m-%d %H:%M:%S")
 
                 recent_trades = trading_client.get_trades_in_time_range(start_time_str, end_time_str)
 
                 # Debug: Check if trade history file exists and has content
-                import os
-                trade_file = trading_client.trade_history_file
-                logger.info(f"Trade history file: {trade_file}")
-                logger.info(f"File exists: {os.path.exists(trade_file)}")
-                if os.path.exists(trade_file):
-                    with open(trade_file, 'r') as f:
-                        content = f.read()
-                        logger.info(f"File content length: {len(content)}")
-                        if content.strip():
-                            import json
-                            try:
-                                trades_data = json.loads(content)
-                                logger.info(f"Total trades in file: {len(trades_data)}")
-                            except:
-                                logger.error("Failed to parse trade history JSON")
+                from app.core import file_manager
+                trade_data = file_manager.read_json("trade_history.json", [])
+                logger.info(f"Total trades in file: {len(trade_data)}")
+                logger.info(f"Time range for filtering: {start_time_str} to {end_time_str}")
+
+                # Log the timestamps of recent trades for debugging
+                if trade_data:
+                    logger.info("Recent trade timestamps:")
+                    for i, trade in enumerate(trade_data[-5:]):  # Last 5 trades
+                        trade_time = datetime.fromtimestamp(trade.get("time", 0) / 1000)
+                        logger.info(f"  Trade {i+1}: {trade_time} ({trade.get('symbol')}, {trade.get('side')})")
 
                 # Filter for our symbol
                 symbol_trades = [trade for trade in recent_trades if trade.get("symbol") == request.symbol.replace("/", "")]
                 message = f"Found {len(recent_trades)} total trades, {len(symbol_trades)} for {request.symbol}"
-                logger.info(f"Time range: {start_time_str} to {end_time_str}")
-                logger.info(f"Recent trades: {recent_trades}")
+                logger.info(f"Filtered trades result: {message}")
+                logger.info(f"Recent trades returned: {recent_trades}")
 
             steps.append(WorkflowStep(
                 step_number=9,
