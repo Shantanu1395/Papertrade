@@ -60,6 +60,9 @@ class PaperTradingClient:
         self.excluded_currencies_file = settings.excluded_currencies_file
         self.file_lock = threading.Lock()
 
+        # Initialize enhanced portfolio manager (lazy loading to avoid circular imports)
+        self._enhanced_portfolio = None
+
     def __enter__(self):
         return self
 
@@ -107,13 +110,28 @@ class PaperTradingClient:
             logging.error(error_msg)
             raise TradingAPIError(error_msg)
 
+    def get_enhanced_portfolio_manager(self):
+        """Get enhanced portfolio manager with lazy loading."""
+        if self._enhanced_portfolio is None:
+            from app.services.enhanced_portfolio import EnhancedPortfolioManager
+            self._enhanced_portfolio = EnhancedPortfolioManager(self)
+        return self._enhanced_portfolio
+
     def _save_trade_to_json(self, trade_data):
-        """Save trade data to JSON file using file manager."""
+        """Save trade data to JSON file using file manager and enhanced portfolio."""
+        # Save to traditional trade history
         success = file_manager.append_json_list("trade_history.json", trade_data)
         if success:
             logging.info(f"Trade saved to {self.trade_history_file}")
         else:
             logging.error(f"Failed to save trade to {self.trade_history_file}")
+
+        # Also save to enhanced portfolio system
+        try:
+            enhanced_manager = self.get_enhanced_portfolio_manager()
+            enhanced_manager.save_trade(trade_data)
+        except Exception as e:
+            logging.warning(f"Failed to save trade to enhanced portfolio: {e}")
 
     def _get_symbol_precision(self, symbol):
         try:

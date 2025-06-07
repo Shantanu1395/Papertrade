@@ -1,0 +1,40 @@
+{
+  "total_portfolio_value": 18585.179556000006,
+  "total_invested": 18568.53397502064,
+  "total_unrealized_pnl": 16.648655979357464,
+  "total_unrealized_pnl_percent": 0.0896605838767568,
+  "total_realized_pnl": -48.63305907514543,
+  "asset_allocation": {
+    "BTC": {
+      "value": 18203.461760000006,
+      "percentage": 97.94611725515038,
+      "quantity": 0.17200000000000004
+    },
+    "ETH": {
+      "value": 381.71779599999996,
+      "percentage": 2.0538827448496018,
+      "quantity": 0.1513
+    }
+  },
+  "top_performers": [
+    [
+      "ETH",
+      0.1317669471344723
+    ],
+    [
+      "BTC",
+      0.08877802801827203
+    ]
+  ],
+  "worst_performers": [],
+  "trading_stats": {
+    "total_trades": 460,
+    "buy_trades": 33,
+    "sell_trades": 427,
+    "total_volume": 1187934.18839337,
+    "avg_trade_size": 2582.465626942109,
+    "most_traded_asset": "",
+    "trading_frequency": 460.0
+  },
+  "last_updated": 1749332261549
+}

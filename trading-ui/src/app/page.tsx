@@ -13,8 +13,8 @@ export default function Home() {
   // Initialize trading pairs in background when API is configured
   useTradingPairs();
 
-  // Always show API configuration page on initial load
-  // This ensures users can always configure their API settings
+  // Always show API configuration page on home
+  // Users can navigate to /dashboard after configuring API
   return (
     <div className="min-h-screen bg-background">
       <Navigation />

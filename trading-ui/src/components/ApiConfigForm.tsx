@@ -1,14 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { useAppStore } from '@/stores/useAppStore';
-import { isValidApiKey } from '@/lib/utils';
 import { Key, Eye, EyeOff, AlertCircle } from 'lucide-react';
 
 export function ApiConfigForm() {
   const { setApiConfig, setError, error, isApiConfigured } = useAppStore();
-  const router = useRouter();
   const [formData, setFormData] = useState({
     apiKey: '',
     apiSecret: '',
@@ -35,24 +32,19 @@ export function ApiConfigForm() {
       return;
     }
 
-    if (!isValidApiKey(formData.apiKey)) {
-      setError('Invalid API Key format');
-      setIsLoading(false);
-      return;
-    }
-
-    if (!isValidApiKey(formData.apiSecret)) {
-      setError('Invalid API Secret format');
-      setIsLoading(false);
-      return;
-    }
-
     try {
-      // Test the API connection by making a simple request
-      const response = await fetch(`${formData.baseUrl}/account/usdt-balance`);
-      
+      // Test the API connection by making a request with the credentials
+      const response = await fetch(`${formData.baseUrl}/account/usdt-balance`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-API-KEY': formData.apiKey.trim(),
+          'X-API-SECRET': formData.apiSecret.trim(),
+        },
+      });
+
       if (!response.ok) {
-        throw new Error('Failed to connect to API');
+        throw new Error(`API test failed: ${response.status} ${response.statusText}`);
       }
 
       // If successful, save the configuration
@@ -63,9 +55,9 @@ export function ApiConfigForm() {
       });
 
       // Redirect to dashboard
-      router.push('/dashboard');
-    } catch {
-      setError('Failed to connect to the API. Please check your configuration.');
+      window.location.href = '/dashboard';
+    } catch (error) {
+      setError(`Failed to connect to the API: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
       setIsLoading(false);
     }
@@ -166,14 +158,21 @@ export function ApiConfigForm() {
           <p className="text-xs text-muted-foreground mb-3">
             Your API is already configured. You can go to the dashboard or reconfigure your settings.
           </p>
-          <button
-            onClick={() => router.push('/dashboard')}
-            className="crypto-button-secondary w-full"
-          >
-            Go to Dashboard
-          </button>
+          <div className="space-y-2">
+            <button
+              onClick={() => {
+                window.location.href = '/dashboard';
+              }}
+              className="crypto-button-secondary w-full"
+            >
+              Go to Dashboard
+            </button>
+
+          </div>
         </div>
       )}
+
+
 
       <div className="mt-6 p-4 bg-muted/50 rounded-lg">
         <h3 className="text-sm font-medium mb-2">Setup Instructions:</h3>

@@ -5518,5 +5518,17 @@
     "time": 1749325904522,
     "tradeId": 165381,
     "orderType": "MARKET"
+  },
+  {
+    "symbol": "ADAUSDT",
+    "side": "BUY",
+    "quantity": 9.9,
+    "price": 0.6687,
+    "quoteQty": 6.62013,
+    "commission": 0.0,
+    "commissionAsset": "ADA",
+    "time": 1749332287088,
+    "tradeId": 366940,
+    "orderType": "MARKET"
   }
 ]

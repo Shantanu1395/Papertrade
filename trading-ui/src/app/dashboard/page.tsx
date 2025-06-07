@@ -15,20 +15,24 @@ export default function DashboardPage() {
   // Initialize trading pairs in background when API is configured
   useTradingPairs();
 
-  // Redirect to home if API is not configured
+  // Redirect to home if API is not configured (with delay to allow state to load)
   useEffect(() => {
-    if (!isApiConfigured) {
-      router.push('/');
-    }
+    const timer = setTimeout(() => {
+      if (!isApiConfigured) {
+        router.push('/');
+      }
+    }, 1000); // Wait 1 second for state to load
+
+    return () => clearTimeout(timer);
   }, [isApiConfigured, router]);
 
-  // Show loading while redirecting
+  // Show loading while checking configuration
   if (!isApiConfigured) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Redirecting to API configuration...</p>
+          <p className="text-muted-foreground">Loading dashboard...</p>
         </div>
       </div>
     );

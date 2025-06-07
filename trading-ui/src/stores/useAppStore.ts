@@ -41,7 +41,7 @@ export const useAppStore = create<AppState>()(
       setApiConfig: (config: ApiConfig) => {
         // Update the API client with new config
         updateApiClient(config);
-        
+
         set({
           apiConfig: config,
           isApiConfigured: true,

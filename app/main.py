@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import logging
 
 from app.core import settings
-from app.routers import account, market, orders, trades, workflow_test
+from app.routers import account, market, orders, trades, workflow_test, enhanced_portfolio
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -33,6 +33,7 @@ app.include_router(market.router)
 app.include_router(orders.router)
 app.include_router(trades.router)
 app.include_router(workflow_test.router)
+app.include_router(enhanced_portfolio.router)
 
 @app.get("/", tags=["Root"])
 async def root():

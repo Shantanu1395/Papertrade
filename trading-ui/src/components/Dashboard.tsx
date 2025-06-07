@@ -3,23 +3,26 @@
 import { useState } from 'react';
 import { useAppStore } from '@/stores/useAppStore';
 import { PortfolioOverview } from './PortfolioOverview';
-import { TradeHistory } from './TradeHistory';
 import { PnLAnalysis } from './PnLAnalysis';
+import { EnhancedPortfolio } from './EnhancedPortfolio';
+import { EnhancedTradeHistory } from './EnhancedTradeHistory';
 
-import { 
-  BarChart3, 
-  Wallet, 
-  History, 
+import {
+  BarChart3,
+  Wallet,
   TrendingUp,
   Menu,
-  X
+  X,
+  PieChart,
+  Activity
 } from 'lucide-react';
 
-type TabType = 'portfolio' | 'trades' | 'pnl';
+type TabType = 'portfolio' | 'pnl' | 'enhanced-portfolio' | 'enhanced-trades';
 
 const tabs = [
   { id: 'portfolio' as TabType, label: 'Portfolio', icon: Wallet },
-  { id: 'trades' as TabType, label: 'Trade History', icon: History },
+  { id: 'enhanced-portfolio' as TabType, label: 'Enhanced Portfolio', icon: PieChart },
+  { id: 'enhanced-trades' as TabType, label: 'Enhanced Trades', icon: Activity },
   { id: 'pnl' as TabType, label: 'PnL Analysis', icon: TrendingUp },
 ];
 
@@ -32,8 +35,10 @@ export function Dashboard() {
     switch (activeTab) {
       case 'portfolio':
         return <PortfolioOverview />;
-      case 'trades':
-        return <TradeHistory />;
+      case 'enhanced-portfolio':
+        return <EnhancedPortfolio />;
+      case 'enhanced-trades':
+        return <EnhancedTradeHistory />;
       case 'pnl':
         return <PnLAnalysis />;
       default:
@@ -128,7 +133,8 @@ export function Dashboard() {
                 </h2>
                 <p className="text-sm text-muted-foreground truncate">
                   {activeTab === 'portfolio' && 'Monitor your holdings and balances'}
-                  {activeTab === 'trades' && 'View your trading history and transactions'}
+                  {activeTab === 'enhanced-portfolio' && 'Advanced portfolio analytics with PnL tracking'}
+                  {activeTab === 'enhanced-trades' && 'Comprehensive trade analysis with advanced filtering'}
                   {activeTab === 'pnl' && 'Analyze your profit and loss performance'}
                 </p>
               </div>

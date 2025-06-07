@@ -1,0 +1,3845 @@
+[
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329874814",
+    "symbol": "ETHUSDT",
+    "quantity": 0.2012,
+    "sell_price": 2484.3,
+    "realized_pnl": -0.06237199999998902,
+    "timestamp": 1748160677734
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329875213",
+    "symbol": "ETHUSDT",
+    "quantity": 0.2012,
+    "sell_price": 2484.3,
+    "realized_pnl": -0.06237199999998902,
+    "timestamp": 1748160680479
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329875697",
+    "symbol": "ETHUSDT",
+    "quantity": 0.2012,
+    "sell_price": 2484.5148409542744,
+    "realized_pnl": -0.0835300000000483,
+    "timestamp": 1748160897082
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329876096",
+    "symbol": "ETHUSDT",
+    "quantity": 0.2012,
+    "sell_price": 2484.51,
+    "realized_pnl": -0.08450400000001464,
+    "timestamp": 1748160899264
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329876251",
+    "symbol": "ETHUSDT",
+    "quantity": 0.2013,
+    "sell_price": 2483.19,
+    "realized_pnl": -0.012077999999989016,
+    "timestamp": 1748160929246
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329876405",
+    "symbol": "ETHUSDT",
+    "quantity": 0.2013,
+    "sell_price": 2483.19,
+    "realized_pnl": -0.012077999999989016,
+    "timestamp": 1748160930705
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329876808",
+    "symbol": "ETHUSDT",
+    "quantity": 0.2017,
+    "sell_price": 2478.6878532473975,
+    "realized_pnl": -0.0024499999999853116,
+    "timestamp": 1748163214073
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329876968",
+    "symbol": "ETHUSDT",
+    "quantity": 0.2017,
+    "sell_price": 2479.3258006941005,
+    "realized_pnl": 0.12622400000001738,
+    "timestamp": 1748163216984
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329877126",
+    "symbol": "ETHUSDT",
+    "quantity": 56.5789,
+    "sell_price": 2487.87,
+    "realized_pnl": 0.0,
+    "timestamp": 1748166571998
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329877127",
+    "symbol": "ETHUSDT",
+    "quantity": 0.04,
+    "sell_price": 2494.85,
+    "realized_pnl": 0.0068000000000029105,
+    "timestamp": 1748171314307
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329877647",
+    "symbol": "ETHUSDT",
+    "quantity": 0.04,
+    "sell_price": 2498.88,
+    "realized_pnl": -0.0003999999999905413,
+    "timestamp": 1748171607414
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329877878",
+    "symbol": "ETHUSDT",
+    "quantity": 0.02,
+    "sell_price": 2496.81,
+    "realized_pnl": -0.0007999999999992724,
+    "timestamp": 1748172463886
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329878358",
+    "symbol": "ETHUSDT",
+    "quantity": 0.02,
+    "sell_price": 2493.8,
+    "realized_pnl": -0.00019999999999527064,
+    "timestamp": 1748172980647
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329878805",
+    "symbol": "ETHUSDT",
+    "quantity": 0.0397,
+    "sell_price": 2514.7,
+    "realized_pnl": -0.012307000000015887,
+    "timestamp": 1748176858116
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329879270",
+    "symbol": "ETHUSDT",
+    "quantity": 0.0397,
+    "sell_price": 2514.99,
+    "realized_pnl": -0.00039700000000866565,
+    "timestamp": 1748177078129
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329879415",
+    "symbol": "ETHUSDT",
+    "quantity": 0.0397,
+    "sell_price": 2515.8,
+    "realized_pnl": -0.0035729999999877236,
+    "timestamp": 1748177163099
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329879763",
+    "symbol": "ETHUSDT",
+    "quantity": 1.4177,
+    "sell_price": 2512.73,
+    "realized_pnl": -2.93114739578383,
+    "timestamp": 1749315979959
+  },
+  {
+    "asset": "BTC",
+    "trade_id": "BTCUSDT_SELL_1749329880157",
+    "symbol": "BTCUSDT",
+    "quantity": 1.0,
+    "sell_price": 105431.34,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316022733
+  },
+  {
+    "asset": "LTC",
+    "trade_id": "LTCUSDT_SELL_1749329880158",
+    "symbol": "LTCUSDT",
+    "quantity": 5.0,
+    "sell_price": 88.83,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316023372
+  },
+  {
+    "asset": "BNB",
+    "trade_id": "BNBUSDT_SELL_1749329880159",
+    "symbol": "BNBUSDT",
+    "quantity": 1.0,
+    "sell_price": 651.32,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316024324
+  },
+  {
+    "asset": "TRX",
+    "trade_id": "TRXUSDT_SELL_1749329880160",
+    "symbol": "TRXUSDT",
+    "quantity": 1837.0,
+    "sell_price": 0.2818,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316025672
+  },
+  {
+    "asset": "XRP",
+    "trade_id": "XRPUSDT_SELL_1749329880160",
+    "symbol": "XRPUSDT",
+    "quantity": 221.0,
+    "sell_price": 2.182,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316026018
+  },
+  {
+    "asset": "NEO",
+    "trade_id": "NEOUSDT_SELL_1749329880161",
+    "symbol": "NEOUSDT",
+    "quantity": 81.0,
+    "sell_price": 6.0,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316026605
+  },
+  {
+    "asset": "QTUM",
+    "trade_id": "QTUMUSDT_SELL_1749329880162",
+    "symbol": "QTUMUSDT",
+    "quantity": 240.0,
+    "sell_price": 2.05,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316026943
+  },
+  {
+    "asset": "GAS",
+    "trade_id": "GASUSDT_SELL_1749329880163",
+    "symbol": "GASUSDT",
+    "quantity": 165.0,
+    "sell_price": 2.959,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316027294
+  },
+  {
+    "asset": "LRC",
+    "trade_id": "LRCUSDT_SELL_1749329880164",
+    "symbol": "LRCUSDT",
+    "quantity": 5714.0,
+    "sell_price": 0.0838,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316027620
+  },
+  {
+    "asset": "ZRX",
+    "trade_id": "ZRXUSDT_SELL_1749329880165",
+    "symbol": "ZRXUSDT",
+    "quantity": 2034.0,
+    "sell_price": 0.2384,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316028163
+  },
+  {
+    "asset": "KNC",
+    "trade_id": "KNCUSDT_SELL_1749329880165",
+    "symbol": "KNCUSDT",
+    "quantity": 1491.0,
+    "sell_price": 0.3399,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316028508
+  },
+  {
+    "asset": "IOTA",
+    "trade_id": "IOTAUSDT_SELL_1749329880166",
+    "symbol": "IOTAUSDT",
+    "quantity": 2673.0,
+    "sell_price": 0.1792,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316028839
+  },
+  {
+    "asset": "LINK",
+    "trade_id": "LINKUSDT_SELL_1749329880167",
+    "symbol": "LINKUSDT",
+    "quantity": 35.0,
+    "sell_price": 13.82,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316029203
+  },
+  {
+    "asset": "XVG",
+    "trade_id": "XVGUSDT_SELL_1749329880169",
+    "symbol": "XVGUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.005885,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316029558
+  },
+  {
+    "asset": "MTL",
+    "trade_id": "MTLUSDT_SELL_1749329880170",
+    "symbol": "MTLUSDT",
+    "quantity": 655.0,
+    "sell_price": 0.733,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316029939
+  },
+  {
+    "asset": "ETC",
+    "trade_id": "ETCUSDT_SELL_1749329880171",
+    "symbol": "ETCUSDT",
+    "quantity": 28.0,
+    "sell_price": 17.19,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316030294
+  },
+  {
+    "asset": "ZEC",
+    "trade_id": "ZECUSDT_SELL_1749329880172",
+    "symbol": "ZECUSDT",
+    "quantity": 9.0,
+    "sell_price": 50.07,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316030654
+  },
+  {
+    "asset": "DASH",
+    "trade_id": "DASHUSDT_SELL_1749329880174",
+    "symbol": "DASHUSDT",
+    "quantity": 22.0,
+    "sell_price": 21.6,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316031017
+  },
+  {
+    "asset": "REQ",
+    "trade_id": "REQUSDT_SELL_1749329880175",
+    "symbol": "REQUSDT",
+    "quantity": 3566.0,
+    "sell_price": 0.1436,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316031368
+  },
+  {
+    "asset": "POWR",
+    "trade_id": "POWRUSDT_SELL_1749329880176",
+    "symbol": "POWRUSDT",
+    "quantity": 2988.0,
+    "sell_price": 0.1616,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316031724
+  },
+  {
+    "asset": "ENJ",
+    "trade_id": "ENJUSDT_SELL_1749329880177",
+    "symbol": "ENJUSDT",
+    "quantity": 6595.0,
+    "sell_price": 0.0751,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316032079
+  },
+  {
+    "asset": "STORJ",
+    "trade_id": "STORJUSDT_SELL_1749329880178",
+    "symbol": "STORJUSDT",
+    "quantity": 1834.0,
+    "sell_price": 0.2581,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316032433
+  },
+  {
+    "asset": "KMD",
+    "trade_id": "KMDUSDT_SELL_1749329880180",
+    "symbol": "KMDUSDT",
+    "quantity": 4236.0,
+    "sell_price": 0.093,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316032788
+  },
+  {
+    "asset": "BAT",
+    "trade_id": "BATUSDT_SELL_1749329880181",
+    "symbol": "BATUSDT",
+    "quantity": 3695.0,
+    "sell_price": 0.1332,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316033138
+  },
+  {
+    "asset": "LSK",
+    "trade_id": "LSKUSDT_SELL_1749329880182",
+    "symbol": "LSKUSDT",
+    "quantity": 1103.0,
+    "sell_price": 0.43,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316033504
+  },
+  {
+    "asset": "MANA",
+    "trade_id": "MANAUSDT_SELL_1749329880183",
+    "symbol": "MANAUSDT",
+    "quantity": 1768.0,
+    "sell_price": 0.2792,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316033849
+  },
+  {
+    "asset": "ADX",
+    "trade_id": "ADXUSDT_SELL_1749329880184",
+    "symbol": "ADXUSDT",
+    "quantity": 5002.0,
+    "sell_price": 0.0904,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316034193
+  },
+  {
+    "asset": "ADA",
+    "trade_id": "ADAUSDT_SELL_1749329880185",
+    "symbol": "ADAUSDT",
+    "quantity": 717.0,
+    "sell_price": 0.6651,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316034563
+  },
+  {
+    "asset": "XLM",
+    "trade_id": "XLMUSDT_SELL_1749329880186",
+    "symbol": "XLMUSDT",
+    "quantity": 1822.0,
+    "sell_price": 0.267,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316034943
+  },
+  {
+    "asset": "ICX",
+    "trade_id": "ICXUSDT_SELL_1749329880187",
+    "symbol": "ICXUSDT",
+    "quantity": 3327.0,
+    "sell_price": 0.1586,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316035308
+  },
+  {
+    "asset": "RLC",
+    "trade_id": "RLCUSDT_SELL_1749329880188",
+    "symbol": "RLCUSDT",
+    "quantity": 489.0,
+    "sell_price": 1.056,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316035683
+  },
+  {
+    "asset": "PIVX",
+    "trade_id": "PIVXUSDT_SELL_1749329880190",
+    "symbol": "PIVXUSDT",
+    "quantity": 3604.0,
+    "sell_price": 0.1332,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316036043
+  },
+  {
+    "asset": "STEEM",
+    "trade_id": "STEEMUSDT_SELL_1749329880191",
+    "symbol": "STEEMUSDT",
+    "quantity": 3579.0,
+    "sell_price": 0.1347,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316036454
+  },
+  {
+    "asset": "ZIL",
+    "trade_id": "ZILUSDT_SELL_1749329880193",
+    "symbol": "ZILUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.01145,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316036799
+  },
+  {
+    "asset": "ONT",
+    "trade_id": "ONTUSDT_SELL_1749329880194",
+    "symbol": "ONTUSDT",
+    "quantity": 3625.0,
+    "sell_price": 0.137,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316037148
+  },
+  {
+    "asset": "WAN",
+    "trade_id": "WANUSDT_SELL_1749329880196",
+    "symbol": "WANUSDT",
+    "quantity": 4206.0,
+    "sell_price": 0.1127,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316037493
+  },
+  {
+    "asset": "SYS",
+    "trade_id": "SYSUSDT_SELL_1749329880197",
+    "symbol": "SYSUSDT",
+    "quantity": 11709.0,
+    "sell_price": 0.0404,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316037843
+  },
+  {
+    "asset": "TUSD",
+    "trade_id": "TUSDUSDT_SELL_1749329880199",
+    "symbol": "TUSDUSDT",
+    "quantity": 10000.0,
+    "sell_price": 0.9982,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316038218
+  },
+  {
+    "asset": "ZEN",
+    "trade_id": "ZENUSDT_SELL_1749329880200",
+    "symbol": "ZENUSDT",
+    "quantity": 44.0,
+    "sell_price": 10.12,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316038583
+  },
+  {
+    "asset": "THETA",
+    "trade_id": "THETAUSDT_SELL_1749329880201",
+    "symbol": "THETAUSDT",
+    "quantity": 637.0,
+    "sell_price": 0.766,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316038943
+  },
+  {
+    "asset": "IOTX",
+    "trade_id": "IOTXUSDT_SELL_1749329880203",
+    "symbol": "IOTXUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.02109,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316039292
+  },
+  {
+    "asset": "DATA",
+    "trade_id": "DATAUSDT_SELL_1749329880204",
+    "symbol": "DATAUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.01369,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316039658
+  },
+  {
+    "asset": "SC",
+    "trade_id": "SCUSDT_SELL_1749329880206",
+    "symbol": "SCUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.003254,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316040024
+  },
+  {
+    "asset": "DENT",
+    "trade_id": "DENTUSDT_SELL_1749329880207",
+    "symbol": "DENTUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.000707,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316040374
+  },
+  {
+    "asset": "ARDR",
+    "trade_id": "ARDRUSDT_SELL_1749329880209",
+    "symbol": "ARDRUSDT",
+    "quantity": 5742.0,
+    "sell_price": 0.08217,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316040763
+  },
+  {
+    "asset": "HOT",
+    "trade_id": "HOTUSDT_SELL_1749329880211",
+    "symbol": "HOTUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.000962,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316041143
+  },
+  {
+    "asset": "VET",
+    "trade_id": "VETUSDT_SELL_1749329880212",
+    "symbol": "VETUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.02408,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316041498
+  },
+  {
+    "asset": "RVN",
+    "trade_id": "RVNUSDT_SELL_1749329880214",
+    "symbol": "RVNUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.01425,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316041853
+  },
+  {
+    "asset": "USDC",
+    "trade_id": "USDCUSDT_SELL_1749329880216",
+    "symbol": "USDCUSDT",
+    "quantity": 10000.0,
+    "sell_price": 0.9994,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316042199
+  },
+  {
+    "asset": "ONG",
+    "trade_id": "ONGUSDT_SELL_1749329880219",
+    "symbol": "ONGUSDT",
+    "quantity": 2673.0,
+    "sell_price": 0.1781,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316042548
+  },
+  {
+    "asset": "FET",
+    "trade_id": "FETUSDT_SELL_1749329880220",
+    "symbol": "FETUSDT",
+    "quantity": 607.0,
+    "sell_price": 0.761,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316042878
+  },
+  {
+    "asset": "IOST",
+    "trade_id": "IOSTUSDT_SELL_1749329880222",
+    "symbol": "IOSTUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.003594,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316043258
+  },
+  {
+    "asset": "CELR",
+    "trade_id": "CELRUSDT_SELL_1749329880224",
+    "symbol": "CELRUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.00829,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316043614
+  },
+  {
+    "asset": "ATOM",
+    "trade_id": "ATOMUSDT_SELL_1749329880226",
+    "symbol": "ATOMUSDT",
+    "quantity": 113.0,
+    "sell_price": 4.295,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316043964
+  },
+  {
+    "asset": "PHB",
+    "trade_id": "PHBUSDT_SELL_1749329880228",
+    "symbol": "PHBUSDT",
+    "quantity": 965.0,
+    "sell_price": 0.492,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316044318
+  },
+  {
+    "asset": "TFUEL",
+    "trade_id": "TFUELUSDT_SELL_1749329880229",
+    "symbol": "TFUELUSDT",
+    "quantity": 13837.0,
+    "sell_price": 0.03409,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316044674
+  },
+  {
+    "asset": "ONE",
+    "trade_id": "ONEUSDT_SELL_1749329880231",
+    "symbol": "ONEUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.01168,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316045028
+  },
+  {
+    "asset": "ALGO",
+    "trade_id": "ALGOUSDT_SELL_1749329880233",
+    "symbol": "ALGOUSDT",
+    "quantity": 2527.0,
+    "sell_price": 0.1911,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316045383
+  },
+  {
+    "asset": "DOGE",
+    "trade_id": "DOGEUSDT_SELL_1749329880235",
+    "symbol": "DOGEUSDT",
+    "quantity": 2559.0,
+    "sell_price": 0.18388,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316045788
+  },
+  {
+    "asset": "DUSK",
+    "trade_id": "DUSKUSDT_SELL_1749329880237",
+    "symbol": "DUSKUSDT",
+    "quantity": 7142.0,
+    "sell_price": 0.0641,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316046118
+  },
+  {
+    "asset": "ANKR",
+    "trade_id": "ANKRUSDT_SELL_1749329880239",
+    "symbol": "ANKRUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.01595,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316046463
+  },
+  {
+    "asset": "COS",
+    "trade_id": "COSUSDT_SELL_1749329880241",
+    "symbol": "COSUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.003074,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316046833
+  },
+  {
+    "asset": "FUN",
+    "trade_id": "FUNUSDT_SELL_1749329880242",
+    "symbol": "FUNUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.003467,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316047189
+  },
+  {
+    "asset": "CVC",
+    "trade_id": "CVCUSDT_SELL_1749329880244",
+    "symbol": "CVCUSDT",
+    "quantity": 3965.0,
+    "sell_price": 0.116,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316047638
+  },
+  {
+    "asset": "CHZ",
+    "trade_id": "CHZUSDT_SELL_1749329880246",
+    "symbol": "CHZUSDT",
+    "quantity": 12533.0,
+    "sell_price": 0.03813,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316048003
+  },
+  {
+    "asset": "BAND",
+    "trade_id": "BANDUSDT_SELL_1749329880248",
+    "symbol": "BANDUSDT",
+    "quantity": 728.0,
+    "sell_price": 0.65,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316048369
+  },
+  {
+    "asset": "XTZ",
+    "trade_id": "XTZUSDT_SELL_1749329880250",
+    "symbol": "XTZUSDT",
+    "quantity": 852.0,
+    "sell_price": 0.5651,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316048744
+  },
+  {
+    "asset": "HBAR",
+    "trade_id": "HBARUSDT_SELL_1749329880251",
+    "symbol": "HBARUSDT",
+    "quantity": 2910.0,
+    "sell_price": 0.16972,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316049098
+  },
+  {
+    "asset": "NKN",
+    "trade_id": "NKNUSDT_SELL_1749329880253",
+    "symbol": "NKNUSDT",
+    "quantity": 16667.0,
+    "sell_price": 0.0281,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316049479
+  },
+  {
+    "asset": "STX",
+    "trade_id": "STXUSDT_SELL_1749329880255",
+    "symbol": "STXUSDT",
+    "quantity": 645.0,
+    "sell_price": 0.654,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316049829
+  },
+  {
+    "asset": "KAVA",
+    "trade_id": "KAVAUSDT_SELL_1749329880257",
+    "symbol": "KAVAUSDT",
+    "quantity": 1116.0,
+    "sell_price": 0.4406,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316050218
+  },
+  {
+    "asset": "ARPA",
+    "trade_id": "ARPAUSDT_SELL_1749329880260",
+    "symbol": "ARPAUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.02142,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316050589
+  },
+  {
+    "asset": "BCH",
+    "trade_id": "BCHUSDT_SELL_1749329880263",
+    "symbol": "BCHUSDT",
+    "quantity": 1.0,
+    "sell_price": 409.2,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316050993
+  },
+  {
+    "asset": "FTT",
+    "trade_id": "FTTUSDT_SELL_1749329880265",
+    "symbol": "FTTUSDT",
+    "quantity": 473.0,
+    "sell_price": 0.9483,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316051378
+  },
+  {
+    "asset": "EUR",
+    "trade_id": "EURUSDT_SELL_1749329880267",
+    "symbol": "EURUSDT",
+    "quantity": 439.0,
+    "sell_price": 1.139,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316051758
+  },
+  {
+    "asset": "OGN",
+    "trade_id": "OGNUSDT_SELL_1749329880269",
+    "symbol": "OGNUSDT",
+    "quantity": 8732.0,
+    "sell_price": 0.0547,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316052148
+  },
+  {
+    "asset": "BNT",
+    "trade_id": "BNTUSDT_SELL_1749329880271",
+    "symbol": "BNTUSDT",
+    "quantity": 750.0,
+    "sell_price": 0.6303,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316052513
+  },
+  {
+    "asset": "LTO",
+    "trade_id": "LTOUSDT_SELL_1749329880273",
+    "symbol": "LTOUSDT",
+    "quantity": 14327.0,
+    "sell_price": 0.0327,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316052864
+  },
+  {
+    "asset": "MBL",
+    "trade_id": "MBLUSDT_SELL_1749329880275",
+    "symbol": "MBLUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.002261,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316053228
+  },
+  {
+    "asset": "COTI",
+    "trade_id": "COTIUSDT_SELL_1749329880277",
+    "symbol": "COTIUSDT",
+    "quantity": 8396.0,
+    "sell_price": 0.05804,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316053583
+  },
+  {
+    "asset": "SOL",
+    "trade_id": "SOLUSDT_SELL_1749329880279",
+    "symbol": "SOLUSDT",
+    "quantity": 3.0,
+    "sell_price": 151.07,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316053943
+  },
+  {
+    "asset": "CTSI",
+    "trade_id": "CTSIUSDT_SELL_1749329880281",
+    "symbol": "CTSIUSDT",
+    "quantity": 7638.0,
+    "sell_price": 0.0612,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316054284
+  },
+  {
+    "asset": "HIVE",
+    "trade_id": "HIVEUSDT_SELL_1749329880283",
+    "symbol": "HIVEUSDT",
+    "quantity": 2045.0,
+    "sell_price": 0.2342,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316054653
+  },
+  {
+    "asset": "CHR",
+    "trade_id": "CHRUSDT_SELL_1749329880285",
+    "symbol": "CHRUSDT",
+    "quantity": 5719.0,
+    "sell_price": 0.0833,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316054983
+  },
+  {
+    "asset": "MDT",
+    "trade_id": "MDTUSDT_SELL_1749329880286",
+    "symbol": "MDTUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.02086,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316055339
+  },
+  {
+    "asset": "COMP",
+    "trade_id": "COMPUSDT_SELL_1749329880289",
+    "symbol": "COMPUSDT",
+    "quantity": 10.0,
+    "sell_price": 45.36,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316055743
+  },
+  {
+    "asset": "SXP",
+    "trade_id": "SXPUSDT_SELL_1749329880291",
+    "symbol": "SXPUSDT",
+    "quantity": 2720.0,
+    "sell_price": 0.1774,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316056084
+  },
+  {
+    "asset": "SNX",
+    "trade_id": "SNXUSDT_SELL_1749329880293",
+    "symbol": "SNXUSDT",
+    "quantity": 723.0,
+    "sell_price": 0.652,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316056523
+  },
+  {
+    "asset": "VTHO",
+    "trade_id": "VTHOUSDT_SELL_1749329880296",
+    "symbol": "VTHOUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.002104,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316056883
+  },
+  {
+    "asset": "DGB",
+    "trade_id": "DGBUSDT_SELL_1749329880298",
+    "symbol": "DGBUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.00888,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316057233
+  },
+  {
+    "asset": "MKR",
+    "trade_id": "MKRUSDT_SELL_1749329880300",
+    "symbol": "MKRUSDT",
+    "quantity": 1.0,
+    "sell_price": 1725.0,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316057583
+  },
+  {
+    "asset": "RUNE",
+    "trade_id": "RUNEUSDT_SELL_1749329880303",
+    "symbol": "RUNEUSDT",
+    "quantity": 301.0,
+    "sell_price": 1.621,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316057938
+  },
+  {
+    "asset": "DCR",
+    "trade_id": "DCRUSDT_SELL_1749329880305",
+    "symbol": "DCRUSDT",
+    "quantity": 33.0,
+    "sell_price": 15.19,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316058299
+  },
+  {
+    "asset": "FIO",
+    "trade_id": "FIOUSDT_SELL_1749329880307",
+    "symbol": "FIOUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.01516,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316058653
+  },
+  {
+    "asset": "AVA",
+    "trade_id": "AVAUSDT_SELL_1749329880309",
+    "symbol": "AVAUSDT",
+    "quantity": 879.0,
+    "sell_price": 0.5548,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316059004
+  },
+  {
+    "asset": "YFI",
+    "trade_id": "YFIUSDT_SELL_1749329880311",
+    "symbol": "YFIUSDT",
+    "quantity": 1.0,
+    "sell_price": 5257.0,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316059378
+  },
+  {
+    "asset": "JST",
+    "trade_id": "JSTUSDT_SELL_1749329880313",
+    "symbol": "JSTUSDT",
+    "quantity": 15217.0,
+    "sell_price": 0.03383,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316059738
+  },
+  {
+    "asset": "CRV",
+    "trade_id": "CRVUSDT_SELL_1749329880316",
+    "symbol": "CRVUSDT",
+    "quantity": 726.0,
+    "sell_price": 0.656,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316060083
+  },
+  {
+    "asset": "SAND",
+    "trade_id": "SANDUSDT_SELL_1749329880318",
+    "symbol": "SANDUSDT",
+    "quantity": 1775.0,
+    "sell_price": 0.2753,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316060438
+  },
+  {
+    "asset": "NMR",
+    "trade_id": "NMRUSDT_SELL_1749329880320",
+    "symbol": "NMRUSDT",
+    "quantity": 61.0,
+    "sell_price": 8.0,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316060798
+  },
+  {
+    "asset": "DOT",
+    "trade_id": "DOTUSDT_SELL_1749329880323",
+    "symbol": "DOTUSDT",
+    "quantity": 120.0,
+    "sell_price": 4.017,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316061154
+  },
+  {
+    "asset": "LUNA",
+    "trade_id": "LUNAUSDT_SELL_1749329880326",
+    "symbol": "LUNAUSDT",
+    "quantity": 2862.0,
+    "sell_price": 0.165,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316061523
+  },
+  {
+    "asset": "RSR",
+    "trade_id": "RSRUSDT_SELL_1749329880328",
+    "symbol": "RSRUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.006788,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316061879
+  },
+  {
+    "asset": "PAXG",
+    "trade_id": "PAXGUSDT_SELL_1749329880330",
+    "symbol": "PAXGUSDT",
+    "quantity": 1.0,
+    "sell_price": 3332.82,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316062238
+  },
+  {
+    "asset": "TRB",
+    "trade_id": "TRBUSDT_SELL_1749329880333",
+    "symbol": "TRBUSDT",
+    "quantity": 9.0,
+    "sell_price": 50.81,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316062588
+  },
+  {
+    "asset": "WBTC",
+    "trade_id": "WBTCUSDT_SELL_1749329880335",
+    "symbol": "WBTCUSDT",
+    "quantity": 1.0,
+    "sell_price": 105389.42,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316062938
+  },
+  {
+    "asset": "SUSHI",
+    "trade_id": "SUSHIUSDT_SELL_1749329880338",
+    "symbol": "SUSHIUSDT",
+    "quantity": 720.0,
+    "sell_price": 0.65,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316063298
+  },
+  {
+    "asset": "KSM",
+    "trade_id": "KSMUSDT_SELL_1749329880340",
+    "symbol": "KSMUSDT",
+    "quantity": 29.0,
+    "sell_price": 16.25,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316063663
+  },
+  {
+    "asset": "EGLD",
+    "trade_id": "EGLDUSDT_SELL_1749329880343",
+    "symbol": "EGLDUSDT",
+    "quantity": 31.0,
+    "sell_price": 15.28,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316064028
+  },
+  {
+    "asset": "DIA",
+    "trade_id": "DIAUSDT_SELL_1749329880345",
+    "symbol": "DIAUSDT",
+    "quantity": 1174.0,
+    "sell_price": 0.3827,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316064474
+  },
+  {
+    "asset": "UMA",
+    "trade_id": "UMAUSDT_SELL_1749329880347",
+    "symbol": "UMAUSDT",
+    "quantity": 430.0,
+    "sell_price": 1.185,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316064813
+  },
+  {
+    "asset": "BEL",
+    "trade_id": "BELUSDT_SELL_1749329880350",
+    "symbol": "BELUSDT",
+    "quantity": 1710.0,
+    "sell_price": 0.281,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316065183
+  },
+  {
+    "asset": "UNI",
+    "trade_id": "UNIUSDT_SELL_1749329880352",
+    "symbol": "UNIUSDT",
+    "quantity": 73.0,
+    "sell_price": 6.257,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316065564
+  },
+  {
+    "asset": "OXT",
+    "trade_id": "OXTUSDT_SELL_1749329880355",
+    "symbol": "OXTUSDT",
+    "quantity": 8850.0,
+    "sell_price": 0.0568,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316065903
+  },
+  {
+    "asset": "SUN",
+    "trade_id": "SUNUSDT_SELL_1749329880357",
+    "symbol": "SUNUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.01922,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316066263
+  },
+  {
+    "asset": "AVAX",
+    "trade_id": "AVAXUSDT_SELL_1749329880360",
+    "symbol": "AVAXUSDT",
+    "quantity": 23.0,
+    "sell_price": 20.7,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316066609
+  },
+  {
+    "asset": "FLM",
+    "trade_id": "FLMUSDT_SELL_1749329880362",
+    "symbol": "FLMUSDT",
+    "quantity": 14332.0,
+    "sell_price": 0.0378,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316066958
+  },
+  {
+    "asset": "SCRT",
+    "trade_id": "SCRTUSDT_SELL_1749329880365",
+    "symbol": "SCRTUSDT",
+    "quantity": 2768.0,
+    "sell_price": 0.1748,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316067323
+  },
+  {
+    "asset": "CAKE",
+    "trade_id": "CAKEUSDT_SELL_1749329880368",
+    "symbol": "CAKEUSDT",
+    "quantity": 205.0,
+    "sell_price": 2.328,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316067713
+  },
+  {
+    "asset": "UTK",
+    "trade_id": "UTKUSDT_SELL_1749329880370",
+    "symbol": "UTKUSDT",
+    "quantity": 16742.0,
+    "sell_price": 0.02866,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316068058
+  },
+  {
+    "asset": "XVS",
+    "trade_id": "XVSUSDT_SELL_1749329880373",
+    "symbol": "XVSUSDT",
+    "quantity": 81.0,
+    "sell_price": 6.0,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316068408
+  },
+  {
+    "asset": "ALPHA",
+    "trade_id": "ALPHAUSDT_SELL_1749329880376",
+    "symbol": "ALPHAUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.0251,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316068778
+  },
+  {
+    "asset": "AAVE",
+    "trade_id": "AAVEUSDT_SELL_1749329880378",
+    "symbol": "AAVEUSDT",
+    "quantity": 1.0,
+    "sell_price": 257.19,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316069124
+  },
+  {
+    "asset": "NEAR",
+    "trade_id": "NEARUSDT_SELL_1749329880382",
+    "symbol": "NEARUSDT",
+    "quantity": 197.0,
+    "sell_price": 2.415,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316069458
+  },
+  {
+    "asset": "FIL",
+    "trade_id": "FILUSDT_SELL_1749329880385",
+    "symbol": "FILUSDT",
+    "quantity": 190.0,
+    "sell_price": 2.492,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316069798
+  },
+  {
+    "asset": "INJ",
+    "trade_id": "INJUSDT_SELL_1749329880387",
+    "symbol": "INJUSDT",
+    "quantity": 38.0,
+    "sell_price": 12.82,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316070199
+  },
+  {
+    "asset": "AUDIO",
+    "trade_id": "AUDIOUSDT_SELL_1749329880390",
+    "symbol": "AUDIOUSDT",
+    "quantity": 7171.0,
+    "sell_price": 0.0675,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316070534
+  },
+  {
+    "asset": "CTK",
+    "trade_id": "CTKUSDT_SELL_1749329880393",
+    "symbol": "CTKUSDT",
+    "quantity": 1557.0,
+    "sell_price": 0.2931,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316070923
+  },
+  {
+    "asset": "AXS",
+    "trade_id": "AXSUSDT_SELL_1749329880396",
+    "symbol": "AXSUSDT",
+    "quantity": 198.0,
+    "sell_price": 2.433,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316071285
+  },
+  {
+    "asset": "SLP",
+    "trade_id": "SLPUSDT_SELL_1749329880399",
+    "symbol": "SLPUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.001378,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316071653
+  },
+  {
+    "asset": "STRAX",
+    "trade_id": "STRAXUSDT_SELL_1749329880402",
+    "symbol": "STRAXUSDT",
+    "quantity": 10751.0,
+    "sell_price": 0.04503,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316072008
+  },
+  {
+    "asset": "ROSE",
+    "trade_id": "ROSEUSDT_SELL_1749329880405",
+    "symbol": "ROSEUSDT",
+    "quantity": 16895.0,
+    "sell_price": 0.02756,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316072393
+  },
+  {
+    "asset": "SKL",
+    "trade_id": "SKLUSDT_SELL_1749329880408",
+    "symbol": "SKLUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.02114,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316072764
+  },
+  {
+    "asset": "GLM",
+    "trade_id": "GLMUSDT_SELL_1749329880411",
+    "symbol": "GLMUSDT",
+    "quantity": 2070.0,
+    "sell_price": 0.2317,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316073119
+  },
+  {
+    "asset": "GRT",
+    "trade_id": "GRTUSDT_SELL_1749329880414",
+    "symbol": "GRTUSDT",
+    "quantity": 5117.0,
+    "sell_price": 0.0913,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316073479
+  },
+  {
+    "asset": "JUV",
+    "trade_id": "JUVUSDT_SELL_1749329880417",
+    "symbol": "JUVUSDT",
+    "quantity": 472.0,
+    "sell_price": 1.03,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316073823
+  },
+  {
+    "asset": "PSG",
+    "trade_id": "PSGUSDT_SELL_1749329880420",
+    "symbol": "PSGUSDT",
+    "quantity": 249.0,
+    "sell_price": 1.851,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316074208
+  },
+  {
+    "asset": "1INCH",
+    "trade_id": "1INCHUSDT_SELL_1749329880423",
+    "symbol": "1INCHUSDT",
+    "quantity": 2289.0,
+    "sell_price": 0.2047,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316074568
+  },
+  {
+    "asset": "OG",
+    "trade_id": "OGUSDT_SELL_1749329880426",
+    "symbol": "OGUSDT",
+    "quantity": 111.0,
+    "sell_price": 4.507,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316074928
+  },
+  {
+    "asset": "ATM",
+    "trade_id": "ATMUSDT_SELL_1749329880429",
+    "symbol": "ATMUSDT",
+    "quantity": 452.0,
+    "sell_price": 1.078,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316075283
+  },
+  {
+    "asset": "ASR",
+    "trade_id": "ASRUSDT_SELL_1749329880433",
+    "symbol": "ASRUSDT",
+    "quantity": 240.0,
+    "sell_price": 2.016,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316075643
+  },
+  {
+    "asset": "CELO",
+    "trade_id": "CELOUSDT_SELL_1749329880436",
+    "symbol": "CELOUSDT",
+    "quantity": 1491.0,
+    "sell_price": 0.3074,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316075988
+  },
+  {
+    "asset": "RIF",
+    "trade_id": "RIFUSDT_SELL_1749329880439",
+    "symbol": "RIFUSDT",
+    "quantity": 9708.0,
+    "sell_price": 0.0523,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316076343
+  },
+  {
+    "asset": "TRU",
+    "trade_id": "TRUUSDT_SELL_1749329880443",
+    "symbol": "TRUUSDT",
+    "quantity": 13368.0,
+    "sell_price": 0.036,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316076713
+  },
+  {
+    "asset": "CKB",
+    "trade_id": "CKBUSDT_SELL_1749329880446",
+    "symbol": "CKBUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.003981,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316077063
+  },
+  {
+    "asset": "TWT",
+    "trade_id": "TWTUSDT_SELL_1749329880449",
+    "symbol": "TWTUSDT",
+    "quantity": 606.0,
+    "sell_price": 0.7926,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316077418
+  },
+  {
+    "asset": "SFP",
+    "trade_id": "SFPUSDT_SELL_1749329880452",
+    "symbol": "SFPUSDT",
+    "quantity": 1021.0,
+    "sell_price": 0.4764,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316077823
+  },
+  {
+    "asset": "DODO",
+    "trade_id": "DODOUSDT_SELL_1749329880455",
+    "symbol": "DODOUSDT",
+    "quantity": 11213.0,
+    "sell_price": 0.0423,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316078193
+  },
+  {
+    "asset": "ACM",
+    "trade_id": "ACMUSDT_SELL_1749329880458",
+    "symbol": "ACMUSDT",
+    "quantity": 589.0,
+    "sell_price": 0.809,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316078548
+  },
+  {
+    "asset": "AUCTION",
+    "trade_id": "AUCTIONUSDT_SELL_1749329880462",
+    "symbol": "AUCTIONUSDT",
+    "quantity": 46.0,
+    "sell_price": 10.6,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316078924
+  },
+  {
+    "asset": "PHA",
+    "trade_id": "PHAUSDT_SELL_1749329880466",
+    "symbol": "PHAUSDT",
+    "quantity": 3646.0,
+    "sell_price": 0.1192,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316079265
+  },
+  {
+    "asset": "FIS",
+    "trade_id": "FISUSDT_SELL_1749329880470",
+    "symbol": "FISUSDT",
+    "quantity": 3242.0,
+    "sell_price": 0.1198,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316079603
+  },
+  {
+    "asset": "OM",
+    "trade_id": "OMUSDT_SELL_1749329880474",
+    "symbol": "OMUSDT",
+    "quantity": 1533.0,
+    "sell_price": 0.3039,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316079958
+  },
+  {
+    "asset": "POND",
+    "trade_id": "PONDUSDT_SELL_1749329880477",
+    "symbol": "PONDUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.00902,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316080298
+  },
+  {
+    "asset": "DEGO",
+    "trade_id": "DEGOUSDT_SELL_1749329880480",
+    "symbol": "DEGOUSDT",
+    "quantity": 354.0,
+    "sell_price": 1.258,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316080668
+  },
+  {
+    "asset": "ALICE",
+    "trade_id": "ALICEUSDT_SELL_1749329880483",
+    "symbol": "ALICEUSDT",
+    "quantity": 1175.0,
+    "sell_price": 0.4154,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316081008
+  },
+  {
+    "asset": "PERP",
+    "trade_id": "PERPUSDT_SELL_1749329880487",
+    "symbol": "PERPUSDT",
+    "quantity": 1994.0,
+    "sell_price": 0.2518,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316081403
+  },
+  {
+    "asset": "SUPER",
+    "trade_id": "SUPERUSDT_SELL_1749329880490",
+    "symbol": "SUPERUSDT",
+    "quantity": 740.0,
+    "sell_price": 0.6474,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316081818
+  },
+  {
+    "asset": "CFX",
+    "trade_id": "CFXUSDT_SELL_1749329880495",
+    "symbol": "CFXUSDT",
+    "quantity": 6440.0,
+    "sell_price": 0.0819,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316082170
+  },
+  {
+    "asset": "TKO",
+    "trade_id": "TKOUSDT_SELL_1749329880499",
+    "symbol": "TKOUSDT",
+    "quantity": 3393.0,
+    "sell_price": 0.1402,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316082528
+  },
+  {
+    "asset": "PUNDIX",
+    "trade_id": "PUNDIXUSDT_SELL_1749329880503",
+    "symbol": "PUNDIXUSDT",
+    "quantity": 1512.0,
+    "sell_price": 0.3194,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316082874
+  },
+  {
+    "asset": "TLM",
+    "trade_id": "TLMUSDT_SELL_1749329880507",
+    "symbol": "TLMUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.00466,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316083223
+  },
+  {
+    "asset": "BAR",
+    "trade_id": "BARUSDT_SELL_1749329880511",
+    "symbol": "BARUSDT",
+    "quantity": 372.0,
+    "sell_price": 1.267,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316083583
+  },
+  {
+    "asset": "FORTH",
+    "trade_id": "FORTHUSDT_SELL_1749329880514",
+    "symbol": "FORTHUSDT",
+    "quantity": 209.0,
+    "sell_price": 2.493,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316083983
+  },
+  {
+    "asset": "BAKE",
+    "trade_id": "BAKEUSDT_SELL_1749329880517",
+    "symbol": "BAKEUSDT",
+    "quantity": 4359.0,
+    "sell_price": 0.1084,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316084358
+  },
+  {
+    "asset": "ICP",
+    "trade_id": "ICPUSDT_SELL_1749329880521",
+    "symbol": "ICPUSDT",
+    "quantity": 92.0,
+    "sell_price": 5.121,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316084718
+  },
+  {
+    "asset": "AR",
+    "trade_id": "ARUSDT_SELL_1749329880525",
+    "symbol": "ARUSDT",
+    "quantity": 74.0,
+    "sell_price": 6.23,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316085064
+  },
+  {
+    "asset": "MASK",
+    "trade_id": "MASKUSDT_SELL_1749329880529",
+    "symbol": "MASKUSDT",
+    "quantity": 172.0,
+    "sell_price": 1.834,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316085418
+  },
+  {
+    "asset": "LPT",
+    "trade_id": "LPTUSDT_SELL_1749329880533",
+    "symbol": "LPTUSDT",
+    "quantity": 65.0,
+    "sell_price": 7.465,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316085778
+  },
+  {
+    "asset": "ATA",
+    "trade_id": "ATAUSDT_SELL_1749329880537",
+    "symbol": "ATAUSDT",
+    "quantity": 10603.0,
+    "sell_price": 0.0454,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316086128
+  },
+  {
+    "asset": "GTC",
+    "trade_id": "GTCUSDT_SELL_1749329880540",
+    "symbol": "GTCUSDT",
+    "quantity": 1846.0,
+    "sell_price": 0.26,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316086488
+  },
+  {
+    "asset": "MLN",
+    "trade_id": "MLNUSDT_SELL_1749329880545",
+    "symbol": "MLNUSDT",
+    "quantity": 61.0,
+    "sell_price": 7.96,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316086838
+  },
+  {
+    "asset": "DEXE",
+    "trade_id": "DEXEUSDT_SELL_1749329880548",
+    "symbol": "DEXEUSDT",
+    "quantity": 51.0,
+    "sell_price": 10.479,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316087188
+  },
+  {
+    "asset": "C98",
+    "trade_id": "C98USDT_SELL_1749329880552",
+    "symbol": "C98USDT",
+    "quantity": 9420.0,
+    "sell_price": 0.0485,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316087528
+  },
+  {
+    "asset": "QNT",
+    "trade_id": "QNTUSDT_SELL_1749329880555",
+    "symbol": "QNTUSDT",
+    "quantity": 4.0,
+    "sell_price": 115.76,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316087879
+  },
+  {
+    "asset": "FLOW",
+    "trade_id": "FLOWUSDT_SELL_1749329880559",
+    "symbol": "FLOWUSDT",
+    "quantity": 1331.0,
+    "sell_price": 0.362,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316088408
+  },
+  {
+    "asset": "MINA",
+    "trade_id": "MINAUSDT_SELL_1749329880563",
+    "symbol": "MINAUSDT",
+    "quantity": 2327.0,
+    "sell_price": 0.2005,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316088813
+  },
+  {
+    "asset": "RAY",
+    "trade_id": "RAYUSDT_SELL_1749329880567",
+    "symbol": "RAYUSDT",
+    "quantity": 208.0,
+    "sell_price": 2.171,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316089158
+  },
+  {
+    "asset": "FARM",
+    "trade_id": "FARMUSDT_SELL_1749329880571",
+    "symbol": "FARMUSDT",
+    "quantity": 16.0,
+    "sell_price": 29.45,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316089513
+  },
+  {
+    "asset": "QUICK",
+    "trade_id": "QUICKUSDT_SELL_1749329880575",
+    "symbol": "QUICKUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.02385,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316089863
+  },
+  {
+    "asset": "MBOX",
+    "trade_id": "MBOXUSDT_SELL_1749329880579",
+    "symbol": "MBOXUSDT",
+    "quantity": 9259.0,
+    "sell_price": 0.0512,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316090258
+  },
+  {
+    "asset": "GHST",
+    "trade_id": "GHSTUSDT_SELL_1749329880583",
+    "symbol": "GHSTUSDT",
+    "quantity": 1222.0,
+    "sell_price": 0.38,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316090618
+  },
+  {
+    "asset": "WAXP",
+    "trade_id": "WAXPUSDT_SELL_1749329880586",
+    "symbol": "WAXPUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.02156,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316091003
+  },
+  {
+    "asset": "GNO",
+    "trade_id": "GNOUSDT_SELL_1749329880590",
+    "symbol": "GNOUSDT",
+    "quantity": 3.0,
+    "sell_price": 125.6,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316091358
+  },
+  {
+    "asset": "DYDX",
+    "trade_id": "DYDXUSDT_SELL_1749329880594",
+    "symbol": "DYDXUSDT",
+    "quantity": 875.0,
+    "sell_price": 0.5348,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316091723
+  },
+  {
+    "asset": "IDEX",
+    "trade_id": "IDEXUSDT_SELL_1749329880598",
+    "symbol": "IDEXUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.02283,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316092073
+  },
+  {
+    "asset": "USDP",
+    "trade_id": "USDPUSDT_SELL_1749329880603",
+    "symbol": "USDPUSDT",
+    "quantity": 500.0,
+    "sell_price": 0.9998,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316092433
+  },
+  {
+    "asset": "GALA",
+    "trade_id": "GALAUSDT_SELL_1749329880610",
+    "symbol": "GALAUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.01621,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316092778
+  },
+  {
+    "asset": "ILV",
+    "trade_id": "ILVUSDT_SELL_1749329880616",
+    "symbol": "ILVUSDT",
+    "quantity": 38.0,
+    "sell_price": 12.11,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316093129
+  },
+  {
+    "asset": "YGG",
+    "trade_id": "YGGUSDT_SELL_1749329880620",
+    "symbol": "YGGUSDT",
+    "quantity": 2626.0,
+    "sell_price": 0.1777,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316093504
+  },
+  {
+    "asset": "DF",
+    "trade_id": "DFUSDT_SELL_1749329880624",
+    "symbol": "DFUSDT",
+    "quantity": 10482.0,
+    "sell_price": 0.04384,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316093878
+  },
+  {
+    "asset": "FIDA",
+    "trade_id": "FIDAUSDT_SELL_1749329880628",
+    "symbol": "FIDAUSDT",
+    "quantity": 7092.0,
+    "sell_price": 0.0657,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316094233
+  },
+  {
+    "asset": "AGLD",
+    "trade_id": "AGLDUSDT_SELL_1749329880632",
+    "symbol": "AGLDUSDT",
+    "quantity": 581.0,
+    "sell_price": 0.794,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316094578
+  },
+  {
+    "asset": "RAD",
+    "trade_id": "RADUSDT_SELL_1749329880637",
+    "symbol": "RADUSDT",
+    "quantity": 713.0,
+    "sell_price": 0.693,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316094958
+  },
+  {
+    "asset": "RARE",
+    "trade_id": "RAREUSDT_SELL_1749329880641",
+    "symbol": "RAREUSDT",
+    "quantity": 8431.0,
+    "sell_price": 0.0566,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316095313
+  },
+  {
+    "asset": "SSV",
+    "trade_id": "SSVUSDT_SELL_1749329880645",
+    "symbol": "SSVUSDT",
+    "quantity": 46.0,
+    "sell_price": 9.39,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316095688
+  },
+  {
+    "asset": "LAZIO",
+    "trade_id": "LAZIOUSDT_SELL_1749329880649",
+    "symbol": "LAZIOUSDT",
+    "quantity": 558.0,
+    "sell_price": 0.842,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316096054
+  },
+  {
+    "asset": "CHESS",
+    "trade_id": "CHESSUSDT_SELL_1749329880654",
+    "symbol": "CHESSUSDT",
+    "quantity": 7585.0,
+    "sell_price": 0.0669,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316096424
+  },
+  {
+    "asset": "MOVR",
+    "trade_id": "MOVRUSDT_SELL_1749329880660",
+    "symbol": "MOVRUSDT",
+    "quantity": 77.0,
+    "sell_price": 5.818,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316096778
+  },
+  {
+    "asset": "CITY",
+    "trade_id": "CITYUSDT_SELL_1749329880665",
+    "symbol": "CITYUSDT",
+    "quantity": 479.0,
+    "sell_price": 1.007,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316097138
+  },
+  {
+    "asset": "ENS",
+    "trade_id": "ENSUSDT_SELL_1749329880669",
+    "symbol": "ENSUSDT",
+    "quantity": 22.0,
+    "sell_price": 20.74,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316097493
+  },
+  {
+    "asset": "QI",
+    "trade_id": "QIUSDT_SELL_1749329880673",
+    "symbol": "QIUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.00787,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316097853
+  },
+  {
+    "asset": "PORTO",
+    "trade_id": "PORTOUSDT_SELL_1749329880678",
+    "symbol": "PORTOUSDT",
+    "quantity": 541.0,
+    "sell_price": 0.868,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316098198
+  },
+  {
+    "asset": "JASMY",
+    "trade_id": "JASMYUSDT_SELL_1749329880682",
+    "symbol": "JASMYUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.014,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316098573
+  },
+  {
+    "asset": "AMP",
+    "trade_id": "AMPUSDT_SELL_1749329880686",
+    "symbol": "AMPUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.003923,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316098969
+  },
+  {
+    "asset": "PYR",
+    "trade_id": "PYRUSDT_SELL_1749329880691",
+    "symbol": "PYRUSDT",
+    "quantity": 489.0,
+    "sell_price": 1.029,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316099363
+  },
+  {
+    "asset": "ALCX",
+    "trade_id": "ALCXUSDT_SELL_1749329880695",
+    "symbol": "ALCXUSDT",
+    "quantity": 49.0,
+    "sell_price": 9.13,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316099763
+  },
+  {
+    "asset": "SANTOS",
+    "trade_id": "SANTOSUSDT_SELL_1749329880700",
+    "symbol": "SANTOSUSDT",
+    "quantity": 216.0,
+    "sell_price": 2.257,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316100148
+  },
+  {
+    "asset": "BICO",
+    "trade_id": "BICOUSDT_SELL_1749329880705",
+    "symbol": "BICOUSDT",
+    "quantity": 4737.0,
+    "sell_price": 0.0988,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316100553
+  },
+  {
+    "asset": "FLUX",
+    "trade_id": "FLUXUSDT_SELL_1749329880709",
+    "symbol": "FLUXUSDT",
+    "quantity": 2149.0,
+    "sell_price": 0.217,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316100918
+  },
+  {
+    "asset": "FXS",
+    "trade_id": "FXSUSDT_SELL_1749329880714",
+    "symbol": "FXSUSDT",
+    "quantity": 164.0,
+    "sell_price": 2.8,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316101284
+  },
+  {
+    "asset": "VOXEL",
+    "trade_id": "VOXELUSDT_SELL_1749329880718",
+    "symbol": "VOXELUSDT",
+    "quantity": 8708.0,
+    "sell_price": 0.0549,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316101649
+  },
+  {
+    "asset": "HIGH",
+    "trade_id": "HIGHUSDT_SELL_1749329880723",
+    "symbol": "HIGHUSDT",
+    "quantity": 894.0,
+    "sell_price": 0.552,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316102013
+  },
+  {
+    "asset": "CVX",
+    "trade_id": "CVXUSDT_SELL_1749329880728",
+    "symbol": "CVXUSDT",
+    "quantity": 184.0,
+    "sell_price": 2.686,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316102443
+  },
+  {
+    "asset": "PEOPLE",
+    "trade_id": "PEOPLEUSDT_SELL_1749329880733",
+    "symbol": "PEOPLEUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.02019,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316102808
+  },
+  {
+    "asset": "SPELL",
+    "trade_id": "SPELLUSDT_SELL_1749329880737",
+    "symbol": "SPELLUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.0005244,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316103178
+  },
+  {
+    "asset": "JOE",
+    "trade_id": "JOEUSDT_SELL_1749329880741",
+    "symbol": "JOEUSDT",
+    "quantity": 3001.0,
+    "sell_price": 0.1596,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316103559
+  },
+  {
+    "asset": "ACH",
+    "trade_id": "ACHUSDT_SELL_1749329880746",
+    "symbol": "ACHUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.0208,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316103923
+  },
+  {
+    "asset": "IMX",
+    "trade_id": "IMXUSDT_SELL_1749329880751",
+    "symbol": "IMXUSDT",
+    "quantity": 878.0,
+    "sell_price": 0.526,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316104283
+  },
+  {
+    "asset": "GLMR",
+    "trade_id": "GLMRUSDT_SELL_1749329880756",
+    "symbol": "GLMRUSDT",
+    "quantity": 6272.0,
+    "sell_price": 0.0775,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316104658
+  },
+  {
+    "asset": "LOKA",
+    "trade_id": "LOKAUSDT_SELL_1749329880761",
+    "symbol": "LOKAUSDT",
+    "quantity": 8487.0,
+    "sell_price": 0.0568,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316105008
+  },
+  {
+    "asset": "API3",
+    "trade_id": "API3USDT_SELL_1749329880765",
+    "symbol": "API3USDT",
+    "quantity": 681.0,
+    "sell_price": 0.694,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316105383
+  },
+  {
+    "asset": "ACA",
+    "trade_id": "ACAUSDT_SELL_1749329880769",
+    "symbol": "ACAUSDT",
+    "quantity": 17909.0,
+    "sell_price": 0.0292,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316105743
+  },
+  {
+    "asset": "XNO",
+    "trade_id": "XNOUSDT_SELL_1749329880774",
+    "symbol": "XNOUSDT",
+    "quantity": 505.0,
+    "sell_price": 1.02,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316106103
+  },
+  {
+    "asset": "WOO",
+    "trade_id": "WOOUSDT_SELL_1749329880778",
+    "symbol": "WOOUSDT",
+    "quantity": 6186.0,
+    "sell_price": 0.0761,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316106483
+  },
+  {
+    "asset": "ALPINE",
+    "trade_id": "ALPINEUSDT_SELL_1749329880782",
+    "symbol": "ALPINEUSDT",
+    "quantity": 628.0,
+    "sell_price": 0.724,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316106828
+  },
+  {
+    "asset": "T",
+    "trade_id": "TUSDT_SELL_1749329880787",
+    "symbol": "TUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.01466,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316107188
+  },
+  {
+    "asset": "ASTR",
+    "trade_id": "ASTRUSDT_SELL_1749329880792",
+    "symbol": "ASTRUSDT",
+    "quantity": 18249.0,
+    "sell_price": 0.02717,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316107614
+  },
+  {
+    "asset": "GMT",
+    "trade_id": "GMTUSDT_SELL_1749329880796",
+    "symbol": "GMTUSDT",
+    "quantity": 9577.0,
+    "sell_price": 0.0502,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316108089
+  },
+  {
+    "asset": "KDA",
+    "trade_id": "KDAUSDT_SELL_1749329880801",
+    "symbol": "KDAUSDT",
+    "quantity": 1062.0,
+    "sell_price": 0.4435,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316108508
+  },
+  {
+    "asset": "APE",
+    "trade_id": "APEUSDT_SELL_1749329880806",
+    "symbol": "APEUSDT",
+    "quantity": 656.0,
+    "sell_price": 0.6998,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316108883
+  },
+  {
+    "asset": "BSW",
+    "trade_id": "BSWUSDT_SELL_1749329880811",
+    "symbol": "BSWUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.0258,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316109263
+  },
+  {
+    "asset": "BIFI",
+    "trade_id": "BIFIUSDT_SELL_1749329880815",
+    "symbol": "BIFIUSDT",
+    "quantity": 2.0,
+    "sell_price": 141.9,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316109658
+  },
+  {
+    "asset": "NEXO",
+    "trade_id": "NEXOUSDT_SELL_1749329880820",
+    "symbol": "NEXOUSDT",
+    "quantity": 400.0,
+    "sell_price": 1.242,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316110039
+  },
+  {
+    "asset": "REI",
+    "trade_id": "REIUSDT_SELL_1749329880824",
+    "symbol": "REIUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.0181,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316110418
+  },
+  {
+    "asset": "LDO",
+    "trade_id": "LDOUSDT_SELL_1749329880829",
+    "symbol": "LDOUSDT",
+    "quantity": 581.0,
+    "sell_price": 0.819,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316110793
+  },
+  {
+    "asset": "OP",
+    "trade_id": "OPUSDT_SELL_1749329880834",
+    "symbol": "OPUSDT",
+    "quantity": 768.0,
+    "sell_price": 0.626,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316111198
+  },
+  {
+    "asset": "LEVER",
+    "trade_id": "LEVERUSDT_SELL_1749329880841",
+    "symbol": "LEVERUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.000448,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316111563
+  },
+  {
+    "asset": "STG",
+    "trade_id": "STGUSDT_SELL_1749329880847",
+    "symbol": "STGUSDT",
+    "quantity": 2698.0,
+    "sell_price": 0.1803,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316111923
+  },
+  {
+    "asset": "GMX",
+    "trade_id": "GMXUSDT_SELL_1749329880855",
+    "symbol": "GMXUSDT",
+    "quantity": 31.0,
+    "sell_price": 16.18,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316112273
+  },
+  {
+    "asset": "POLYX",
+    "trade_id": "POLYXUSDT_SELL_1749329880860",
+    "symbol": "POLYXUSDT",
+    "quantity": 3440.0,
+    "sell_price": 0.1413,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316112858
+  },
+  {
+    "asset": "APT",
+    "trade_id": "APTUSDT_SELL_1749329880866",
+    "symbol": "APTUSDT",
+    "quantity": 101.0,
+    "sell_price": 4.707,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316113209
+  },
+  {
+    "asset": "OSMO",
+    "trade_id": "OSMOUSDT_SELL_1749329880872",
+    "symbol": "OSMOUSDT",
+    "quantity": 2347.0,
+    "sell_price": 0.1999,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316113574
+  },
+  {
+    "asset": "HFT",
+    "trade_id": "HFTUSDT_SELL_1749329880877",
+    "symbol": "HFTUSDT",
+    "quantity": 8183.0,
+    "sell_price": 0.0569,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316113938
+  },
+  {
+    "asset": "HOOK",
+    "trade_id": "HOOKUSDT_SELL_1749329880882",
+    "symbol": "HOOKUSDT",
+    "quantity": 4186.0,
+    "sell_price": 0.1096,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316114298
+  },
+  {
+    "asset": "MAGIC",
+    "trade_id": "MAGICUSDT_SELL_1749329880887",
+    "symbol": "MAGICUSDT",
+    "quantity": 3656.0,
+    "sell_price": 0.127,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316114673
+  },
+  {
+    "asset": "HIFI",
+    "trade_id": "HIFIUSDT_SELL_1749329880892",
+    "symbol": "HIFIUSDT",
+    "quantity": 5701.0,
+    "sell_price": 0.0767,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316115026
+  },
+  {
+    "asset": "RPL",
+    "trade_id": "RPLUSDT_SELL_1749329880898",
+    "symbol": "RPLUSDT",
+    "quantity": 83.0,
+    "sell_price": 5.42,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316115373
+  },
+  {
+    "asset": "GNS",
+    "trade_id": "GNSUSDT_SELL_1749329880904",
+    "symbol": "GNSUSDT",
+    "quantity": 421.0,
+    "sell_price": 1.157,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316115743
+  },
+  {
+    "asset": "SYN",
+    "trade_id": "SYNUSDT_SELL_1749329880913",
+    "symbol": "SYNUSDT",
+    "quantity": 3002.0,
+    "sell_price": 0.1582,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316116138
+  },
+  {
+    "asset": "LQTY",
+    "trade_id": "LQTYUSDT_SELL_1749329880920",
+    "symbol": "LQTYUSDT",
+    "quantity": 489.0,
+    "sell_price": 0.895,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316116493
+  },
+  {
+    "asset": "USTC",
+    "trade_id": "USTCUSDT_SELL_1749329880925",
+    "symbol": "USTCUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.01176,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316116838
+  },
+  {
+    "asset": "PROM",
+    "trade_id": "PROMUSDT_SELL_1749329880931",
+    "symbol": "PROMUSDT",
+    "quantity": 93.0,
+    "sell_price": 5.374,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316117183
+  },
+  {
+    "asset": "QKC",
+    "trade_id": "QKCUSDT_SELL_1749329880936",
+    "symbol": "QKCUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.007038,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316117544
+  },
+  {
+    "asset": "ID",
+    "trade_id": "IDUSDT_SELL_1749329880941",
+    "symbol": "IDUSDT",
+    "quantity": 2688.0,
+    "sell_price": 0.1765,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316117976
+  },
+  {
+    "asset": "ARB",
+    "trade_id": "ARBUSDT_SELL_1749329880947",
+    "symbol": "ARBUSDT",
+    "quantity": 1376.0,
+    "sell_price": 0.3439,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316118393
+  },
+  {
+    "asset": "RDNT",
+    "trade_id": "RDNTUSDT_SELL_1749329880952",
+    "symbol": "RDNTUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.02321,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316118783
+  },
+  {
+    "asset": "EDU",
+    "trade_id": "EDUUSDT_SELL_1749329880958",
+    "symbol": "EDUUSDT",
+    "quantity": 3487.0,
+    "sell_price": 0.1485,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316119163
+  },
+  {
+    "asset": "SUI",
+    "trade_id": "SUIUSDT_SELL_1749329880964",
+    "symbol": "SUIUSDT",
+    "quantity": 155.0,
+    "sell_price": 3.2339,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316119564
+  },
+  {
+    "asset": "WBETH",
+    "trade_id": "WBETHUSDT_SELL_1749329880969",
+    "symbol": "WBETHUSDT",
+    "quantity": 1.0,
+    "sell_price": 2689.01,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316119913
+  },
+  {
+    "asset": "MAV",
+    "trade_id": "MAVUSDT_SELL_1749329880977",
+    "symbol": "MAVUSDT",
+    "quantity": 8783.0,
+    "sell_price": 0.05307,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316120273
+  },
+  {
+    "asset": "PENDLE",
+    "trade_id": "PENDLEUSDT_SELL_1749329880982",
+    "symbol": "PENDLEUSDT",
+    "quantity": 115.0,
+    "sell_price": 4.093,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316120653
+  },
+  {
+    "asset": "ARKM",
+    "trade_id": "ARKMUSDT_SELL_1749329880987",
+    "symbol": "ARKMUSDT",
+    "quantity": 915.0,
+    "sell_price": 0.516,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316120998
+  },
+  {
+    "asset": "WLD",
+    "trade_id": "WLDUSDT_SELL_1749329880999",
+    "symbol": "WLDUSDT",
+    "quantity": 428.0,
+    "sell_price": 1.106,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316121363
+  },
+  {
+    "asset": "FDUSD",
+    "trade_id": "FDUSDUSDT_SELL_1749329881004",
+    "symbol": "FDUSDUSDT",
+    "quantity": 10000.0,
+    "sell_price": 0.9981,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316121719
+  },
+  {
+    "asset": "SEI",
+    "trade_id": "SEIUSDT_SELL_1749329881012",
+    "symbol": "SEIUSDT",
+    "quantity": 2508.0,
+    "sell_price": 0.1894,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316122078
+  },
+  {
+    "asset": "CYBER",
+    "trade_id": "CYBERUSDT_SELL_1749329881017",
+    "symbol": "CYBERUSDT",
+    "quantity": 408.0,
+    "sell_price": 1.132,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316122473
+  },
+  {
+    "asset": "ARK",
+    "trade_id": "ARKUSDT_SELL_1749329881022",
+    "symbol": "ARKUSDT",
+    "quantity": 1314.0,
+    "sell_price": 0.3671,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316122813
+  },
+  {
+    "asset": "IQ",
+    "trade_id": "IQUSDT_SELL_1749329881027",
+    "symbol": "IQUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.003805,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316123144
+  },
+  {
+    "asset": "NTRN",
+    "trade_id": "NTRNUSDT_SELL_1749329881034",
+    "symbol": "NTRNUSDT",
+    "quantity": 4837.0,
+    "sell_price": 0.0988,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316123523
+  },
+  {
+    "asset": "TIA",
+    "trade_id": "TIAUSDT_SELL_1749329881041",
+    "symbol": "TIAUSDT",
+    "quantity": 225.0,
+    "sell_price": 2.025,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316123870
+  },
+  {
+    "asset": "MEME",
+    "trade_id": "MEMEUSDT_SELL_1749329881046",
+    "symbol": "MEMEUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.001817,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316124213
+  },
+  {
+    "asset": "ORDI",
+    "trade_id": "ORDIUSDT_SELL_1749329881051",
+    "symbol": "ORDIUSDT",
+    "quantity": 56.0,
+    "sell_price": 8.477,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316124564
+  },
+  {
+    "asset": "BEAMX",
+    "trade_id": "BEAMXUSDT_SELL_1749329881057",
+    "symbol": "BEAMXUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.00623,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316124923
+  },
+  {
+    "asset": "VIC",
+    "trade_id": "VICUSDT_SELL_1749329881062",
+    "symbol": "VICUSDT",
+    "quantity": 2673.0,
+    "sell_price": 0.1737,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316125283
+  },
+  {
+    "asset": "BLUR",
+    "trade_id": "BLURUSDT_SELL_1749329881068",
+    "symbol": "BLURUSDT",
+    "quantity": 5347.0,
+    "sell_price": 0.0862,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316125768
+  },
+  {
+    "asset": "VANRY",
+    "trade_id": "VANRYUSDT_SELL_1749329881075",
+    "symbol": "VANRYUSDT",
+    "quantity": 14577.0,
+    "sell_price": 0.0325,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316126114
+  },
+  {
+    "asset": "AEUR",
+    "trade_id": "AEURUSDT_SELL_1749329881081",
+    "symbol": "AEURUSDT",
+    "quantity": 490.0,
+    "sell_price": 1.0148,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316126468
+  },
+  {
+    "asset": "JTO",
+    "trade_id": "JTOUSDT_SELL_1749329881086",
+    "symbol": "JTOUSDT",
+    "quantity": 269.0,
+    "sell_price": 1.828,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316127058
+  },
+  {
+    "asset": "ACE",
+    "trade_id": "ACEUSDT_SELL_1749329881091",
+    "symbol": "ACEUSDT",
+    "quantity": 853.0,
+    "sell_price": 0.573,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316127424
+  },
+  {
+    "asset": "NFP",
+    "trade_id": "NFPUSDT_SELL_1749329881097",
+    "symbol": "NFPUSDT",
+    "quantity": 6832.0,
+    "sell_price": 0.0686,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316127773
+  },
+  {
+    "asset": "AI",
+    "trade_id": "AIUSDT_SELL_1749329881102",
+    "symbol": "AIUSDT",
+    "quantity": 3428.0,
+    "sell_price": 0.1355,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316128114
+  },
+  {
+    "asset": "XAI",
+    "trade_id": "XAIUSDT_SELL_1749329881109",
+    "symbol": "XAIUSDT",
+    "quantity": 7194.0,
+    "sell_price": 0.0633,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316128479
+  },
+  {
+    "asset": "MANTA",
+    "trade_id": "MANTAUSDT_SELL_1749329881117",
+    "symbol": "MANTAUSDT",
+    "quantity": 1986.0,
+    "sell_price": 0.226,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316128828
+  },
+  {
+    "asset": "ALT",
+    "trade_id": "ALTUSDT_SELL_1749329881124",
+    "symbol": "ALTUSDT",
+    "quantity": 17905.0,
+    "sell_price": 0.02628,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316129163
+  },
+  {
+    "asset": "JUP",
+    "trade_id": "JUPUSDT_SELL_1749329881130",
+    "symbol": "JUPUSDT",
+    "quantity": 919.0,
+    "sell_price": 0.4606,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316129519
+  },
+  {
+    "asset": "PYTH",
+    "trade_id": "PYTHUSDT_SELL_1749329881135",
+    "symbol": "PYTHUSDT",
+    "quantity": 4128.0,
+    "sell_price": 0.116,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316129879
+  },
+  {
+    "asset": "RONIN",
+    "trade_id": "RONINUSDT_SELL_1749329881143",
+    "symbol": "RONINUSDT",
+    "quantity": 840.0,
+    "sell_price": 0.535,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316130233
+  },
+  {
+    "asset": "DYM",
+    "trade_id": "DYMUSDT_SELL_1749329881148",
+    "symbol": "DYMUSDT",
+    "quantity": 1689.0,
+    "sell_price": 0.282,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316130618
+  },
+  {
+    "asset": "PIXEL",
+    "trade_id": "PIXELUSDT_SELL_1749329881154",
+    "symbol": "PIXELUSDT",
+    "quantity": 10801.0,
+    "sell_price": 0.04307,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316130993
+  },
+  {
+    "asset": "STRK",
+    "trade_id": "STRKUSDT_SELL_1749329881160",
+    "symbol": "STRKUSDT",
+    "quantity": 3615.0,
+    "sell_price": 0.1313,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316131348
+  },
+  {
+    "asset": "PORTAL",
+    "trade_id": "PORTALUSDT_SELL_1749329881167",
+    "symbol": "PORTALUSDT",
+    "quantity": 10499.0,
+    "sell_price": 0.0424,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316131729
+  },
+  {
+    "asset": "AXL",
+    "trade_id": "AXLUSDT_SELL_1749329881173",
+    "symbol": "AXLUSDT",
+    "quantity": 1516.0,
+    "sell_price": 0.3145,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316132109
+  },
+  {
+    "asset": "WIF",
+    "trade_id": "WIFUSDT_SELL_1749329881178",
+    "symbol": "WIFUSDT",
+    "quantity": 518.0,
+    "sell_price": 0.858,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316132504
+  },
+  {
+    "asset": "METIS",
+    "trade_id": "METISUSDT_SELL_1749329881184",
+    "symbol": "METISUSDT",
+    "quantity": 27.0,
+    "sell_price": 17.58,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316132864
+  },
+  {
+    "asset": "AEVO",
+    "trade_id": "AEVOUSDT_SELL_1749329881189",
+    "symbol": "AEVOUSDT",
+    "quantity": 4845.0,
+    "sell_price": 0.0974,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316133213
+  },
+  {
+    "asset": "BOME",
+    "trade_id": "BOMEUSDT_SELL_1749329881195",
+    "symbol": "BOMEUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.001785,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316133614
+  },
+  {
+    "asset": "ETHFI",
+    "trade_id": "ETHFIUSDT_SELL_1749329881200",
+    "symbol": "ETHFIUSDT",
+    "quantity": 412.0,
+    "sell_price": 1.164,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316133963
+  },
+  {
+    "asset": "ENA",
+    "trade_id": "ENAUSDT_SELL_1749329881206",
+    "symbol": "ENAUSDT",
+    "quantity": 1490.0,
+    "sell_price": 0.3286,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316134324
+  },
+  {
+    "asset": "W",
+    "trade_id": "WUSDT_SELL_1749329881212",
+    "symbol": "WUSDT",
+    "quantity": 6127.0,
+    "sell_price": 0.0749,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316134674
+  },
+  {
+    "asset": "TNSR",
+    "trade_id": "TNSRUSDT_SELL_1749329881217",
+    "symbol": "TNSRUSDT",
+    "quantity": 3728.0,
+    "sell_price": 0.125,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316135043
+  },
+  {
+    "asset": "SAGA",
+    "trade_id": "SAGAUSDT_SELL_1749329881223",
+    "symbol": "SAGAUSDT",
+    "quantity": 1652.0,
+    "sell_price": 0.283,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316135393
+  },
+  {
+    "asset": "TAO",
+    "trade_id": "TAOUSDT_SELL_1749329881229",
+    "symbol": "TAOUSDT",
+    "quantity": 1.0,
+    "sell_price": 377.4,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316135819
+  },
+  {
+    "asset": "OMNI",
+    "trade_id": "OMNIUSDT_SELL_1749329881235",
+    "symbol": "OMNIUSDT",
+    "quantity": 220.0,
+    "sell_price": 2.07,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316136183
+  },
+  {
+    "asset": "REZ",
+    "trade_id": "REZUSDT_SELL_1749329881241",
+    "symbol": "REZUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.0105,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316136518
+  },
+  {
+    "asset": "BB",
+    "trade_id": "BBUSDT_SELL_1749329881247",
+    "symbol": "BBUSDT",
+    "quantity": 4183.0,
+    "sell_price": 0.1086,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316136943
+  },
+  {
+    "asset": "NOT",
+    "trade_id": "NOTUSDT_SELL_1749329881252",
+    "symbol": "NOTUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.002202,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316137308
+  },
+  {
+    "asset": "IO",
+    "trade_id": "IOUSDT_SELL_1749329881258",
+    "symbol": "IOUSDT",
+    "quantity": 607.0,
+    "sell_price": 0.761,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316137693
+  },
+  {
+    "asset": "ZK",
+    "trade_id": "ZKUSDT_SELL_1749329881264",
+    "symbol": "ZKUSDT",
+    "quantity": 8484.0,
+    "sell_price": 0.0543,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316138053
+  },
+  {
+    "asset": "LISTA",
+    "trade_id": "LISTAUSDT_SELL_1749329881270",
+    "symbol": "LISTAUSDT",
+    "quantity": 2073.0,
+    "sell_price": 0.2371,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316138453
+  },
+  {
+    "asset": "ZRO",
+    "trade_id": "ZROUSDT_SELL_1749329881275",
+    "symbol": "ZROUSDT",
+    "quantity": 216.0,
+    "sell_price": 2.135,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316138819
+  },
+  {
+    "asset": "G",
+    "trade_id": "GUSDT_SELL_1749329881281",
+    "symbol": "GUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.01329,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316139173
+  },
+  {
+    "asset": "BANANA",
+    "trade_id": "BANANAUSDT_SELL_1749329881286",
+    "symbol": "BANANAUSDT",
+    "quantity": 22.0,
+    "sell_price": 19.02,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316139570
+  },
+  {
+    "asset": "RENDER",
+    "trade_id": "RENDERUSDT_SELL_1749329881292",
+    "symbol": "RENDERUSDT",
+    "quantity": 126.0,
+    "sell_price": 3.842,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316139938
+  },
+  {
+    "asset": "TON",
+    "trade_id": "TONUSDT_SELL_1749329881300",
+    "symbol": "TONUSDT",
+    "quantity": 156.0,
+    "sell_price": 3.187,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316140283
+  },
+  {
+    "asset": "EURI",
+    "trade_id": "EURIUSDT_SELL_1749329881306",
+    "symbol": "EURIUSDT",
+    "quantity": 439.0,
+    "sell_price": 1.139,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316140638
+  },
+  {
+    "asset": "SLF",
+    "trade_id": "SLFUSDT_SELL_1749329881313",
+    "symbol": "SLFUSDT",
+    "quantity": 3172.0,
+    "sell_price": 0.1514,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316141003
+  },
+  {
+    "asset": "POL",
+    "trade_id": "POLUSDT_SELL_1749329881320",
+    "symbol": "POLUSDT",
+    "quantity": 2301.0,
+    "sell_price": 0.2154,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316141343
+  },
+  {
+    "asset": "TURBO",
+    "trade_id": "TURBOUSDT_SELL_1749329881326",
+    "symbol": "TURBOUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.004128,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316141728
+  },
+  {
+    "asset": "1MBABYDOGE",
+    "trade_id": "1MBABYDOGEUSDT_SELL_1749329881332",
+    "symbol": "1MBABYDOGEUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.0013578,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316142140
+  },
+  {
+    "asset": "CATI",
+    "trade_id": "CATIUSDT_SELL_1749329881339",
+    "symbol": "CATIUSDT",
+    "quantity": 5269.0,
+    "sell_price": 0.0932,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316142508
+  },
+  {
+    "asset": "HMSTR",
+    "trade_id": "HMSTRUSDT_SELL_1749329881345",
+    "symbol": "HMSTRUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.002006,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316142873
+  },
+  {
+    "asset": "EIGEN",
+    "trade_id": "EIGENUSDT_SELL_1749329881351",
+    "symbol": "EIGENUSDT",
+    "quantity": 328.0,
+    "sell_price": 1.399,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316143254
+  },
+  {
+    "asset": "BNSOL",
+    "trade_id": "BNSOLUSDT_SELL_1749329881358",
+    "symbol": "BNSOLUSDT",
+    "quantity": 3.0,
+    "sell_price": 159.2,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316143635
+  },
+  {
+    "asset": "SCR",
+    "trade_id": "SCRUSDT_SELL_1749329881366",
+    "symbol": "SCRUSDT",
+    "quantity": 1666.0,
+    "sell_price": 0.271,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316144023
+  },
+  {
+    "asset": "LUMIA",
+    "trade_id": "LUMIAUSDT_SELL_1749329881373",
+    "symbol": "LUMIAUSDT",
+    "quantity": 1693.0,
+    "sell_price": 0.267,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316144373
+  },
+  {
+    "asset": "KAIA",
+    "trade_id": "KAIAUSDT_SELL_1749329881379",
+    "symbol": "KAIAUSDT",
+    "quantity": 4425.0,
+    "sell_price": 0.1071,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316144758
+  },
+  {
+    "asset": "COW",
+    "trade_id": "COWUSDT_SELL_1749329881385",
+    "symbol": "COWUSDT",
+    "quantity": 1151.0,
+    "sell_price": 0.3739,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316145133
+  },
+  {
+    "asset": "CETUS",
+    "trade_id": "CETUSUSDT_SELL_1749329881391",
+    "symbol": "CETUSUSDT",
+    "quantity": 3805.0,
+    "sell_price": 0.1251,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316145488
+  },
+  {
+    "asset": "PNUT",
+    "trade_id": "PNUTUSDT_SELL_1749329881398",
+    "symbol": "PNUTUSDT",
+    "quantity": 1877.0,
+    "sell_price": 0.2601,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316145834
+  },
+  {
+    "asset": "ACT",
+    "trade_id": "ACTUSDT_SELL_1749329881404",
+    "symbol": "ACTUSDT",
+    "quantity": 9723.0,
+    "sell_price": 0.0489,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316146193
+  },
+  {
+    "asset": "USUAL",
+    "trade_id": "USUALUSDT_SELL_1749329881412",
+    "symbol": "USUALUSDT",
+    "quantity": 4700.0,
+    "sell_price": 0.1005,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316146559
+  },
+  {
+    "asset": "THE",
+    "trade_id": "THEUSDT_SELL_1749329881419",
+    "symbol": "THEUSDT",
+    "quantity": 1974.0,
+    "sell_price": 0.2334,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316146918
+  },
+  {
+    "asset": "ACX",
+    "trade_id": "ACXUSDT_SELL_1749329881434",
+    "symbol": "ACXUSDT",
+    "quantity": 2536.0,
+    "sell_price": 0.1804,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316147273
+  },
+  {
+    "asset": "ORCA",
+    "trade_id": "ORCAUSDT_SELL_1749329881441",
+    "symbol": "ORCAUSDT",
+    "quantity": 187.0,
+    "sell_price": 2.365,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316147623
+  },
+  {
+    "asset": "MOVE",
+    "trade_id": "MOVEUSDT_SELL_1749329881447",
+    "symbol": "MOVEUSDT",
+    "quantity": 3344.0,
+    "sell_price": 0.1424,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316148008
+  },
+  {
+    "asset": "ME",
+    "trade_id": "MEUSDT_SELL_1749329881453",
+    "symbol": "MEUSDT",
+    "quantity": 491.0,
+    "sell_price": 0.856,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316148373
+  },
+  {
+    "asset": "VELODROME",
+    "trade_id": "VELODROMEUSDT_SELL_1749329881459",
+    "symbol": "VELODROMEUSDT",
+    "quantity": 9525.0,
+    "sell_price": 0.0491,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316148743
+  },
+  {
+    "asset": "VANA",
+    "trade_id": "VANAUSDT_SELL_1749329881465",
+    "symbol": "VANAUSDT",
+    "quantity": 71.0,
+    "sell_price": 6.181,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316149093
+  },
+  {
+    "asset": "1000CAT",
+    "trade_id": "1000CATUSDT_SELL_1749329881472",
+    "symbol": "1000CATUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.00681,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316149443
+  },
+  {
+    "asset": "PENGU",
+    "trade_id": "PENGUUSDT_SELL_1749329881478",
+    "symbol": "PENGUUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.009937,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316149808
+  },
+  {
+    "asset": "BIO",
+    "trade_id": "BIOUSDT_SELL_1749329881484",
+    "symbol": "BIOUSDT",
+    "quantity": 7470.0,
+    "sell_price": 0.0619,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316150169
+  },
+  {
+    "asset": "D",
+    "trade_id": "DUSDT_SELL_1749329881490",
+    "symbol": "DUSDT",
+    "quantity": 14436.0,
+    "sell_price": 0.03482,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316150518
+  },
+  {
+    "asset": "AIXBT",
+    "trade_id": "AIXBTUSDT_SELL_1749329881497",
+    "symbol": "AIXBTUSDT",
+    "quantity": 2794.0,
+    "sell_price": 0.1745,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316150868
+  },
+  {
+    "asset": "CGPT",
+    "trade_id": "CGPTUSDT_SELL_1749329881503",
+    "symbol": "CGPTUSDT",
+    "quantity": 4381.0,
+    "sell_price": 0.1034,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316151223
+  },
+  {
+    "asset": "COOKIE",
+    "trade_id": "COOKIEUSDT_SELL_1749329881510",
+    "symbol": "COOKIEUSDT",
+    "quantity": 2223.0,
+    "sell_price": 0.2125,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316151578
+  },
+  {
+    "asset": "S",
+    "trade_id": "SUSDT_SELL_1749329881516",
+    "symbol": "SUSDT",
+    "quantity": 1230.0,
+    "sell_price": 0.3786,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316151938
+  },
+  {
+    "asset": "SOLV",
+    "trade_id": "SOLVUSDT_SELL_1749329881523",
+    "symbol": "SOLVUSDT",
+    "quantity": 11345.0,
+    "sell_price": 0.04271,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316152293
+  },
+  {
+    "asset": "TRUMP",
+    "trade_id": "TRUMPUSDT_SELL_1749329881529",
+    "symbol": "TRUMPUSDT",
+    "quantity": 44.0,
+    "sell_price": 10.31,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316152673
+  },
+  {
+    "asset": "ANIME",
+    "trade_id": "ANIMEUSDT_SELL_1749329881535",
+    "symbol": "ANIMEUSDT",
+    "quantity": 15063.0,
+    "sell_price": 0.02884,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316153013
+  },
+  {
+    "asset": "BERA",
+    "trade_id": "BERAUSDT_SELL_1749329881542",
+    "symbol": "BERAUSDT",
+    "quantity": 200.0,
+    "sell_price": 2.312,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316153363
+  },
+  {
+    "asset": "1000CHEEMS",
+    "trade_id": "1000CHEEMSUSDT_SELL_1749329881548",
+    "symbol": "1000CHEEMSUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.001442,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316153708
+  },
+  {
+    "asset": "TST",
+    "trade_id": "TSTUSDT_SELL_1749329881554",
+    "symbol": "TSTUSDT",
+    "quantity": 12394.0,
+    "sell_price": 0.04133,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316154078
+  },
+  {
+    "asset": "LAYER",
+    "trade_id": "LAYERUSDT_SELL_1749329881560",
+    "symbol": "LAYERUSDT",
+    "quantity": 624.0,
+    "sell_price": 0.7418,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316154423
+  },
+  {
+    "asset": "HEI",
+    "trade_id": "HEIUSDT_SELL_1749329881566",
+    "symbol": "HEIUSDT",
+    "quantity": 1563.0,
+    "sell_price": 0.3106,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316154783
+  },
+  {
+    "asset": "KAITO",
+    "trade_id": "KAITOUSDT_SELL_1749329881572",
+    "symbol": "KAITOUSDT",
+    "quantity": 290.0,
+    "sell_price": 1.6421,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316155203
+  },
+  {
+    "asset": "SHELL",
+    "trade_id": "SHELLUSDT_SELL_1749329881579",
+    "symbol": "SHELLUSDT",
+    "quantity": 2841.0,
+    "sell_price": 0.153,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316155548
+  },
+  {
+    "asset": "RED",
+    "trade_id": "REDUSDT_SELL_1749329881585",
+    "symbol": "REDUSDT",
+    "quantity": 1439.0,
+    "sell_price": 0.3402,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316155943
+  },
+  {
+    "asset": "GPS",
+    "trade_id": "GPSUSDT_SELL_1749329881591",
+    "symbol": "GPSUSDT",
+    "quantity": 18446.0,
+    "sell_price": 0.0232,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316156283
+  },
+  {
+    "asset": "EPIC",
+    "trade_id": "EPICUSDT_SELL_1749329881597",
+    "symbol": "EPICUSDT",
+    "quantity": 418.0,
+    "sell_price": 1.171,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316156624
+  },
+  {
+    "asset": "BMT",
+    "trade_id": "BMTUSDT_SELL_1749329881603",
+    "symbol": "BMTUSDT",
+    "quantity": 4318.0,
+    "sell_price": 0.1273,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316157028
+  },
+  {
+    "asset": "FORM",
+    "trade_id": "FORMUSDT_SELL_1749329881609",
+    "symbol": "FORMUSDT",
+    "quantity": 173.0,
+    "sell_price": 2.7808,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316157388
+  },
+  {
+    "asset": "XUSD",
+    "trade_id": "XUSDUSDT_SELL_1749329881616",
+    "symbol": "XUSDUSDT",
+    "quantity": 500.0,
+    "sell_price": 0.9994,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316157763
+  },
+  {
+    "asset": "NIL",
+    "trade_id": "NILUSDT_SELL_1749329881622",
+    "symbol": "NILUSDT",
+    "quantity": 1147.0,
+    "sell_price": 0.3826,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316158098
+  },
+  {
+    "asset": "PARTI",
+    "trade_id": "PARTIUSDT_SELL_1749329881628",
+    "symbol": "PARTIUSDT",
+    "quantity": 2068.0,
+    "sell_price": 0.2327,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316158438
+  },
+  {
+    "asset": "MUBARAK",
+    "trade_id": "MUBARAKUSDT_SELL_1749329881634",
+    "symbol": "MUBARAKUSDT",
+    "quantity": 11804.0,
+    "sell_price": 0.0393,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316158783
+  },
+  {
+    "asset": "TUT",
+    "trade_id": "TUTUSDT_SELL_1749329881640",
+    "symbol": "TUTUSDT",
+    "quantity": 17423.0,
+    "sell_price": 0.02791,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316159138
+  },
+  {
+    "asset": "BROCCOLI714",
+    "trade_id": "BROCCOLI714USDT_SELL_1749329881646",
+    "symbol": "BROCCOLI714USDT",
+    "quantity": 18446.0,
+    "sell_price": 0.02531,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316159478
+  },
+  {
+    "asset": "BANANAS31",
+    "trade_id": "BANANAS31USDT_SELL_1749329881653",
+    "symbol": "BANANAS31USDT",
+    "quantity": 18446.0,
+    "sell_price": 0.005922,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316159803
+  },
+  {
+    "asset": "GUN",
+    "trade_id": "GUNUSDT_SELL_1749329881659",
+    "symbol": "GUNUSDT",
+    "quantity": 13448.0,
+    "sell_price": 0.03642,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316160144
+  },
+  {
+    "asset": "BABY",
+    "trade_id": "BABYUSDT_SELL_1749329881666",
+    "symbol": "BABYUSDT",
+    "quantity": 7438.0,
+    "sell_price": 0.06303,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316160504
+  },
+  {
+    "asset": "ONDO",
+    "trade_id": "ONDOUSDT_SELL_1749329881672",
+    "symbol": "ONDOUSDT",
+    "quantity": 588.0,
+    "sell_price": 0.8296,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316160854
+  },
+  {
+    "asset": "BIGTIME",
+    "trade_id": "BIGTIMEUSDT_SELL_1749329881678",
+    "symbol": "BIGTIMEUSDT",
+    "quantity": 7772.0,
+    "sell_price": 0.05908,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316161193
+  },
+  {
+    "asset": "VIRTUAL",
+    "trade_id": "VIRTUALUSDT_SELL_1749329881683",
+    "symbol": "VIRTUALUSDT",
+    "quantity": 259.0,
+    "sell_price": 1.8172,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316161558
+  },
+  {
+    "asset": "KERNEL",
+    "trade_id": "KERNELUSDT_SELL_1749329881690",
+    "symbol": "KERNELUSDT",
+    "quantity": 3165.0,
+    "sell_price": 0.1398,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316161909
+  },
+  {
+    "asset": "WCT",
+    "trade_id": "WCTUSDT_SELL_1749329881696",
+    "symbol": "WCTUSDT",
+    "quantity": 1018.0,
+    "sell_price": 0.438,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316162428
+  },
+  {
+    "asset": "HYPER",
+    "trade_id": "HYPERUSDT_SELL_1749329881703",
+    "symbol": "HYPERUSDT",
+    "quantity": 3500.0,
+    "sell_price": 0.1279,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316162773
+  },
+  {
+    "asset": "INIT",
+    "trade_id": "INITUSDT_SELL_1749329881709",
+    "symbol": "INITUSDT",
+    "quantity": 697.0,
+    "sell_price": 0.6675,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316163134
+  },
+  {
+    "asset": "SIGN",
+    "trade_id": "SIGNUSDT_SELL_1749329881715",
+    "symbol": "SIGNUSDT",
+    "quantity": 6417.0,
+    "sell_price": 0.07149,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316163479
+  },
+  {
+    "asset": "STO",
+    "trade_id": "STOUSDT_SELL_1749329881722",
+    "symbol": "STOUSDT",
+    "quantity": 5146.0,
+    "sell_price": 0.0893,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316163893
+  },
+  {
+    "asset": "SYRUP",
+    "trade_id": "SYRUPUSDT_SELL_1749329881728",
+    "symbol": "SYRUPUSDT",
+    "quantity": 1208.0,
+    "sell_price": 0.4172,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316164243
+  },
+  {
+    "asset": "KMNO",
+    "trade_id": "KMNOUSDT_SELL_1749329881736",
+    "symbol": "KMNOUSDT",
+    "quantity": 8950.0,
+    "sell_price": 0.05256,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316164598
+  },
+  {
+    "asset": "SXT",
+    "trade_id": "SXTUSDT_SELL_1749329881742",
+    "symbol": "SXTUSDT",
+    "quantity": 4938.0,
+    "sell_price": 0.0974,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316164949
+  },
+  {
+    "asset": "NXPC",
+    "trade_id": "NXPCUSDT_SELL_1749329881748",
+    "symbol": "NXPCUSDT",
+    "quantity": 349.0,
+    "sell_price": 1.3034,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316165303
+  },
+  {
+    "asset": "AWE",
+    "trade_id": "AWEUSDT_SELL_1749329881755",
+    "symbol": "AWEUSDT",
+    "quantity": 7604.0,
+    "sell_price": 0.05146,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316165668
+  },
+  {
+    "asset": "HAEDAL",
+    "trade_id": "HAEDALUSDT_SELL_1749329881769",
+    "symbol": "HAEDALUSDT",
+    "quantity": 3842.0,
+    "sell_price": 0.1234,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316166013
+  },
+  {
+    "asset": "USD1",
+    "trade_id": "USD1USDT_SELL_1749329881779",
+    "symbol": "USD1USDT",
+    "quantity": 500.0,
+    "sell_price": 0.9997,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316166403
+  },
+  {
+    "asset": "HUMA",
+    "trade_id": "HUMAUSDT_SELL_1749329881787",
+    "symbol": "HUMAUSDT",
+    "quantity": 12763.0,
+    "sell_price": 0.05725,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316166808
+  },
+  {
+    "asset": "A",
+    "trade_id": "AUSDT_SELL_1749329881793",
+    "symbol": "AUSDT",
+    "quantity": 782.0,
+    "sell_price": 0.5911,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316167169
+  },
+  {
+    "asset": "SOPH",
+    "trade_id": "SOPHUSDT_SELL_1749329881800",
+    "symbol": "SOPHUSDT",
+    "quantity": 8842.0,
+    "sell_price": 0.04983,
+    "realized_pnl": 0.0,
+    "timestamp": 1749316167774
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329881815",
+    "symbol": "ETHUSDT",
+    "quantity": 0.0199,
+    "sell_price": 2510.49,
+    "realized_pnl": -0.012338000000006878,
+    "timestamp": 1749318568286
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329882184",
+    "symbol": "ETHUSDT",
+    "quantity": 0.0398,
+    "sell_price": 2508.36,
+    "realized_pnl": -0.00039799999999058855,
+    "timestamp": 1749319253137
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329883180",
+    "symbol": "ETHUSDT",
+    "quantity": 0.0498,
+    "sell_price": 2508.55,
+    "realized_pnl": -0.01742999999999547,
+    "timestamp": 1749319344679
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329883727",
+    "symbol": "ETHUSDT",
+    "quantity": 0.1494,
+    "sell_price": 2511.18,
+    "realized_pnl": 0.34063199999996197,
+    "timestamp": 1749319460674
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329888486",
+    "symbol": "ETHUSDT",
+    "quantity": 0.3966,
+    "sell_price": 2520.6,
+    "realized_pnl": -0.24589199999995673,
+    "timestamp": 1749323469776
+  },
+  {
+    "asset": "BTC",
+    "trade_id": "BTCUSDT_SELL_1749329890094",
+    "symbol": "BTCUSDT",
+    "quantity": 1.0,
+    "sell_price": 105717.8,
+    "realized_pnl": -27.018019266761257,
+    "timestamp": 1749323539239
+  },
+  {
+    "asset": "1INCH",
+    "trade_id": "1INCHUSDT_SELL_1749329890697",
+    "symbol": "1INCHUSDT",
+    "quantity": 4870.9,
+    "sell_price": 0.2053,
+    "realized_pnl": 0.0,
+    "timestamp": 1749323539829
+  },
+  {
+    "asset": "AEVO",
+    "trade_id": "AEVOUSDT_SELL_1749329891010",
+    "symbol": "AEVOUSDT",
+    "quantity": 10638.29,
+    "sell_price": 0.0984,
+    "realized_pnl": 0.0,
+    "timestamp": 1749323540824
+  },
+  {
+    "asset": "BTC",
+    "trade_id": "BTCUSDT_SELL_1749329891683",
+    "symbol": "BTCUSDT",
+    "quantity": 1.0,
+    "sell_price": 105724.76,
+    "realized_pnl": -14.508297266133013,
+    "timestamp": 1749323766622
+  },
+  {
+    "asset": "BTC",
+    "trade_id": "BTCUSDT_SELL_1749329892085",
+    "symbol": "BTCUSDT",
+    "quantity": 0.11237,
+    "sell_price": 105781.39,
+    "realized_pnl": 4.733215736205157,
+    "timestamp": 1749324277208
+  },
+  {
+    "asset": "BTC",
+    "trade_id": "BTCUSDT_SELL_1749329892907",
+    "symbol": "BTCUSDT",
+    "quantity": 0.00473,
+    "sell_price": 105859.67,
+    "realized_pnl": 0.565065049432313,
+    "timestamp": 1749324544583
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329894831",
+    "symbol": "ETHUSDT",
+    "quantity": 0.3963,
+    "sell_price": 2520.64,
+    "realized_pnl": -1.0184910000000649,
+    "timestamp": 1749324860003
+  },
+  {
+    "asset": "BTC",
+    "trade_id": "BTCUSDT_SELL_1749329896680",
+    "symbol": "BTCUSDT",
+    "quantity": 0.00472,
+    "sell_price": 105804.0,
+    "realized_pnl": 0.301108008735847,
+    "timestamp": 1749324860999
+  },
+  {
+    "asset": "FARM",
+    "trade_id": "FARMUSDT_SELL_1749329897757",
+    "symbol": "FARMUSDT",
+    "quantity": 33.467,
+    "sell_price": 29.92,
+    "realized_pnl": 1.3386800000000902,
+    "timestamp": 1749324862088
+  },
+  {
+    "asset": "ACE",
+    "trade_id": "ACEUSDT_SELL_1749329898509",
+    "symbol": "ACEUSDT",
+    "quantity": 17.4,
+    "sell_price": 0.572,
+    "realized_pnl": -0.017400000000000013,
+    "timestamp": 1749324863182
+  },
+  {
+    "asset": "BTC",
+    "trade_id": "BTCUSDT_SELL_1749329899149",
+    "symbol": "BTCUSDT",
+    "quantity": 0.56311,
+    "sell_price": 105726.15,
+    "realized_pnl": -7.915034940841672,
+    "timestamp": 1749325379842
+  },
+  {
+    "asset": "ETH",
+    "trade_id": "ETHUSDT_SELL_1749329902804",
+    "symbol": "ETHUSDT",
+    "quantity": 3.8175,
+    "sell_price": 2519.07,
+    "realized_pnl": -2.023274999999028,
+    "timestamp": 1749325900760
+  },
+  {
+    "asset": "VET",
+    "trade_id": "VETUSDT_SELL_1749329903114",
+    "symbol": "VETUSDT",
+    "quantity": 998.0,
+    "sell_price": 0.0241,
+    "realized_pnl": 0.0,
+    "timestamp": 1749325901811
+  },
+  {
+    "asset": "OP",
+    "trade_id": "OPUSDT_SELL_1749329903987",
+    "symbol": "OPUSDT",
+    "quantity": 10.04,
+    "sell_price": 0.624,
+    "realized_pnl": 0.0,
+    "timestamp": 1749325903897
+  },
+  {
+    "asset": "ARB",
+    "trade_id": "ARBUSDT_SELL_1749329904801",
+    "symbol": "ARBUSDT",
+    "quantity": 1000.0,
+    "sell_price": 0.346,
+    "realized_pnl": 0.0,
+    "timestamp": 1749325904522
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "BTC": {
+    "asset": "BTC",
+    "free": 0.17200000000000004,
+    "locked": 0.0,
+    "avg_buy_price": 105740.20593035257,
+    "total_invested": 18187.31542002064,
+    "current_price": 105865.42,
+    "unrealized_pnl": 21.53681997935684,
+    "unrealized_pnl_percent": 0.11841670682001286,
+    "last_updated": 1749332287728
+  },
+  "ETH": {
+    "asset": "ETH",
+    "free": 0.1513,
+    "locked": 0.0,
+    "avg_buy_price": 2519.6,
+    "total_invested": 381.2185550000013,
+    "current_price": 2522.91,
+    "unrealized_pnl": 0.5008029999999917,
+    "unrealized_pnl_percent": 0.1313700587394803,
+    "last_updated": 1749332288139
+  },
+  "ADA": {
+    "asset": "ADA",
+    "free": 9.9,
+    "locked": 0.0,
+    "avg_buy_price": 0.6687,
+    "total_invested": 6.62013,
+    "current_price": 0.6687,
+    "unrealized_pnl": 0.0,
+    "unrealized_pnl_percent": 0.0,
+    "last_updated": 1749332287088
+  }
+}
