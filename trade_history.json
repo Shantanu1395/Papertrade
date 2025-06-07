@@ -1,0 +1,14 @@
+[
+  {
+    "symbol": "ETHUSDT",
+    "side": "BUY",
+    "quantity": 0.3979,
+    "price": 2512.7900000000004,
+    "quoteQty": 999.839141,
+    "commission": 0.0,
+    "commissionAsset": "ETH",
+    "time": 1749315950025,
+    "tradeId": 911493,
+    "orderType": "MARKET"
+  }
+]
