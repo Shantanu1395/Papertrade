@@ -222,7 +222,9 @@ export function PortfolioOverview() {
           </div>
         ) : (
           <div className="space-y-3">
-            {portfolio.map((asset) => (
+            {portfolio
+              .filter(asset => asset.free > 0.000001 || asset.locked > 0.000001) // Filter out dust amounts
+              .map((asset) => (
               <div
                 key={asset.asset}
                 className="flex items-center justify-between p-3 lg:p-4 hover:bg-muted/50 rounded-lg transition-colors border border-transparent hover:border-border"

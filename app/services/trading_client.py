@@ -210,7 +210,7 @@ class PaperTradingClient:
             portfolio = [
                 {"asset": b["asset"], "free": float(b["free"]), "locked": float(b["locked"])}
                 for b in response.get("balances", [])
-                if (float(b["free"]) > 0 or float(b["locked"]) > 0)
+                if (float(b["free"]) > 0.000001 or float(b["locked"]) > 0.000001)  # Filter out dust amounts
                 and b["asset"] != "USDT"
                 and b["asset"] not in excluded_currencies
             ]
@@ -536,6 +536,9 @@ class PaperTradingClient:
 
             params["quantity"] = quantity
         elif quote_order_qty is not None:
+            # Add minimum quote order quantity validation
+            if quote_order_qty < 0.001:
+                raise ValueError(f"Quote order quantity too small: {quote_order_qty}. Minimum is 0.001")
             params["quoteOrderQty"] = quote_order_qty
 
         response = self._make_request("POST", "/v3/order", params, signed=True)
@@ -636,8 +639,22 @@ class PaperTradingClient:
                 logging.warning(f"Cannot sell {asset['asset']}: No USDT pair available")
                 continue
 
+            # Skip very small amounts that would cause errors
+            if asset['free'] < 0.000001:
+                logging.info(f"Skipping {asset['asset']}: Amount too small ({asset['free']})")
+                continue
+
             logging.info(f"Selling {asset['free']} {asset['asset']} to USDT")
-            self.place_market_order(symbol, "SELL", quantity=asset["free"])
+            try:
+                self.place_market_order(symbol, "SELL", quantity=asset["free"])
+            except Exception as e:
+                logging.error(f"Failed to sell {asset['asset']}: {e}")
+                # Add to exclusion list if sell fails
+                excluded_currencies = file_manager.read_json("excluded_currencies.json", [])
+                if asset['asset'] not in excluded_currencies:
+                    excluded_currencies.append(asset['asset'])
+                    file_manager.write_json("excluded_currencies.json", excluded_currencies)
+                    logging.info(f"Added {asset['asset']} to exclusion list")
 
         # Wait a moment for orders to process
         time.sleep(1)
