@@ -7,11 +7,15 @@ interface AppState {
   // API Configuration
   apiConfig: ApiConfig | null;
   isApiConfigured: boolean;
-  
+
   // UI State
   isLoading: boolean;
   error: string | null;
-  
+
+  // Trading Pairs
+  tradingPairs: string[];
+  tradingPairsLoaded: boolean;
+
   // Actions
   setApiConfig: (config: ApiConfig) => void;
   clearApiConfig: () => void;
@@ -19,6 +23,7 @@ interface AppState {
   setError: (error: string | null) => void;
   clearError: () => void;
   handleApiError: (error: any) => void;
+  setTradingPairs: (pairs: string[]) => void;
 }
 
 export const useAppStore = create<AppState>()(
@@ -29,6 +34,8 @@ export const useAppStore = create<AppState>()(
       isApiConfigured: false,
       isLoading: false,
       error: null,
+      tradingPairs: [],
+      tradingPairsLoaded: false,
 
       // Actions
       setApiConfig: (config: ApiConfig) => {
@@ -77,12 +84,21 @@ export const useAppStore = create<AppState>()(
           set({ error: error.detail || error.message || 'An error occurred' });
         }
       },
+
+      setTradingPairs: (pairs: string[]) => {
+        set({
+          tradingPairs: pairs,
+          tradingPairsLoaded: true
+        });
+      },
     }),
     {
       name: 'trading-app-storage',
       partialize: (state) => ({
         apiConfig: state.apiConfig,
         isApiConfigured: state.isApiConfigured,
+        tradingPairs: state.tradingPairs,
+        tradingPairsLoaded: state.tradingPairsLoaded,
       }),
     }
   )

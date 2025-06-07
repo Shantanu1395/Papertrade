@@ -126,15 +126,29 @@ class PaperTradingClient:
                     # Look for specific filters
                     for f in s.get("filters", []):
                         if f["filterType"] == "LOT_SIZE":
-                            step_size = float(f["stepSize"])
-                            quantity_precision = len(str(step_size).rstrip('0').split('.')[-1]) if '.' in str(step_size) else 0
+                            step_size = f["stepSize"]
+                            # Handle scientific notation properly
+                            if 'e' in step_size.lower():
+                                quantity_precision = abs(int(step_size.lower().split('e')[1]))
+                            elif '.' in step_size:
+                                quantity_precision = len(step_size.split('.')[1].rstrip('0'))
+                            else:
+                                quantity_precision = 0
                         elif f["filterType"] == "PRICE_FILTER":
-                            tick_size = float(f["tickSize"])
-                            price_precision = len(str(tick_size).rstrip('0').split('.')[-1]) if '.' in str(tick_size) else 0
+                            tick_size = f["tickSize"]
+                            # Handle scientific notation properly
+                            if 'e' in tick_size.lower():
+                                price_precision = abs(int(tick_size.lower().split('e')[1]))
+                            elif '.' in tick_size:
+                                price_precision = len(tick_size.split('.')[1].rstrip('0'))
+                            else:
+                                price_precision = 0
 
+                    logging.info(f"Symbol {symbol}: quantity_precision={quantity_precision}, price_precision={price_precision}")
                     return quantity_precision, price_precision
 
             # Default values if symbol not found
+            logging.warning(f"Symbol {symbol} not found, using defaults")
             return 8, 8
         except Exception as e:
             logging.error(f"Failed to get symbol precision: {e}")
@@ -509,7 +523,17 @@ class PaperTradingClient:
 
         if quantity is not None:
             quantity_precision, _ = self._get_symbol_precision(symbol)
-            quantity = float(Decimal(str(quantity)).quantize(Decimal(f"0.{'0' * quantity_precision}"), rounding=ROUND_DOWN))
+            logging.info(f"Sell order for {symbol}: original_quantity={quantity}, precision={quantity_precision}")
+
+            # Use ROUND_HALF_UP instead of ROUND_DOWN to avoid rounding to 0
+            from decimal import ROUND_HALF_UP
+            quantity = float(Decimal(str(quantity)).quantize(Decimal(f"0.{'0' * quantity_precision}"), rounding=ROUND_HALF_UP))
+            logging.info(f"Rounded quantity: {quantity}")
+
+            if quantity <= 0:
+                logging.error(f"Quantity rounded to 0 for {symbol}. Original: {quantity}, Precision: {quantity_precision}")
+                raise ValueError(f"Quantity too small after rounding: {quantity}")
+
             params["quantity"] = quantity
         elif quote_order_qty is not None:
             params["quoteOrderQty"] = quote_order_qty

@@ -5,6 +5,8 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { getApiClient } from '@/lib/api';
 import { useToast } from '@/components/Toast';
 import { formatCurrency, formatNumber } from '@/lib/utils';
+import { useTradingPairs } from '@/hooks/useTradingPairs';
+import { QuoteCurrencyHelper } from '@/components/QuoteCurrencyHelper';
 import { 
   ShoppingCart, 
   X, 
@@ -23,11 +25,14 @@ export function BuyOrderModal({ isOpen, onClose }: BuyOrderModalProps) {
   const apiClient = getApiClient();
   const { showToast } = useToast();
   const queryClient = useQueryClient();
-  
+  const { popularPairs, usdtPairs, btcPairs, ethPairs, allPairs, isLoading: pairsLoading } = useTradingPairs();
+
   const [selectedSymbol, setSelectedSymbol] = useState('ETH/USDT');
   const [orderAmount, setOrderAmount] = useState('100');
   const [orderType, setOrderType] = useState<'amount' | 'percentage'>('amount');
   const [usdtPercentage, setUsdtPercentage] = useState('25');
+  const [pairCategory, setPairCategory] = useState<'popular' | 'usdt' | 'btc' | 'eth' | 'all'>('popular');
+  const [showQuoteHelper, setShowQuoteHelper] = useState(false);
 
   // Get USDT balance for percentage calculations
   const { data: usdtBalance } = useQuery({
@@ -36,12 +41,24 @@ export function BuyOrderModal({ isOpen, onClose }: BuyOrderModalProps) {
     enabled: isOpen,
   });
 
-  // Get trading pairs
-  const { data: tradingPairs, isLoading: pairsLoading } = useQuery({
-    queryKey: ['trading-pairs'],
-    queryFn: () => apiClient.getTradingPairs(),
+  // Get portfolio for quote currency balance validation
+  const { data: portfolio } = useQuery({
+    queryKey: ['portfolio'],
+    queryFn: () => apiClient.getPortfolio(),
     enabled: isOpen,
   });
+
+  // Get current pairs based on category
+  const getCurrentPairs = () => {
+    switch (pairCategory) {
+      case 'popular': return popularPairs;
+      case 'usdt': return usdtPairs;
+      case 'btc': return btcPairs;
+      case 'eth': return ethPairs;
+      case 'all': return allPairs;
+      default: return popularPairs;
+    }
+  };
 
   // Get current price for selected symbol
   const { data: priceData } = useQuery({
@@ -83,9 +100,42 @@ export function BuyOrderModal({ isOpen, onClose }: BuyOrderModalProps) {
     setOrderType('amount');
   };
 
+  // Get quote currency from selected symbol
+  const getQuoteCurrency = () => {
+    const parts = selectedSymbol.split('/');
+    return parts[1]; // BTC, USDT, ETH, etc.
+  };
+
+  // Get quote currency balance
+  const getQuoteCurrencyBalance = () => {
+    const quoteCurrency = getQuoteCurrency();
+    if (quoteCurrency === 'USDT') {
+      return usdtBalance?.balance || 0;
+    }
+
+    if (portfolio) {
+      const asset = portfolio.find(p => p.asset === quoteCurrency);
+      return asset?.free || 0;
+    }
+
+    return 0;
+  };
+
+  // Check if user has sufficient quote currency
+  const hasQuoteCurrencyBalance = () => {
+    return getQuoteCurrencyBalance() > 0;
+  };
+
+  // Get alternative USDT pair suggestion
+  const getUSDTAlternative = () => {
+    const baseCurrency = selectedSymbol.split('/')[0];
+    return `${baseCurrency}/USDT`;
+  };
+
   const calculateOrderAmount = () => {
-    if (orderType === 'percentage' && usdtBalance) {
-      return (usdtBalance.balance * parseFloat(usdtPercentage)) / 100;
+    if (orderType === 'percentage') {
+      const quoteCurrencyBalance = getQuoteCurrencyBalance();
+      return (quoteCurrencyBalance * parseFloat(usdtPercentage)) / 100;
     }
     return parseFloat(orderAmount);
   };
@@ -94,14 +144,29 @@ export function BuyOrderModal({ isOpen, onClose }: BuyOrderModalProps) {
     e.preventDefault();
 
     const amount = calculateOrderAmount();
+    const quoteCurrency = getQuoteCurrency();
+    const quoteCurrencyBalance = getQuoteCurrencyBalance();
 
     if (amount <= 0) {
       showToast('error', 'Order amount must be greater than 0');
       return;
     }
 
-    if (usdtBalance && amount > usdtBalance.balance) {
-      showToast('error', 'Insufficient USDT balance');
+    // Check quote currency balance
+    if (amount > quoteCurrencyBalance) {
+      const usdtAlternative = getUSDTAlternative();
+      const hasUSDTAlternative = popularPairs.includes(usdtAlternative) || usdtPairs.includes(usdtAlternative);
+
+      if (quoteCurrency !== 'USDT' && hasUSDTAlternative) {
+        showToast('error',
+          `Insufficient ${quoteCurrency} balance. Available: ${quoteCurrencyBalance.toFixed(8)} ${quoteCurrency}. ` +
+          `Try using ${usdtAlternative} instead, or buy ${quoteCurrency} first.`
+        );
+      } else {
+        showToast('error',
+          `Insufficient ${quoteCurrency} balance. Available: ${quoteCurrencyBalance.toFixed(8)} ${quoteCurrency}.`
+        );
+      }
       return;
     }
 
@@ -160,6 +225,32 @@ export function BuyOrderModal({ isOpen, onClose }: BuyOrderModalProps) {
           {/* Trading Pair Selection */}
           <div>
             <label className="block text-sm font-medium mb-2">Trading Pair</label>
+
+            {/* Pair Category Tabs */}
+            <div className="flex gap-1 mb-3 p-1 bg-muted/30 rounded-lg">
+              {[
+                { key: 'popular', label: 'Popular', count: popularPairs.length },
+                { key: 'usdt', label: 'USDT', count: usdtPairs.length },
+                { key: 'btc', label: 'BTC', count: btcPairs.length },
+                { key: 'eth', label: 'ETH', count: ethPairs.length },
+                { key: 'all', label: 'All', count: allPairs.length },
+              ].map(({ key, label, count }) => (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => setPairCategory(key as any)}
+                  className={`flex-1 py-1.5 px-2 text-xs rounded transition-colors ${
+                    pairCategory === key
+                      ? 'bg-primary text-primary-foreground'
+                      : 'hover:bg-muted/50'
+                  }`}
+                  disabled={buyMutation.isPending}
+                >
+                  {label} ({count})
+                </button>
+              ))}
+            </div>
+
             <select
               value={selectedSymbol}
               onChange={(e) => setSelectedSymbol(e.target.value)}
@@ -168,18 +259,20 @@ export function BuyOrderModal({ isOpen, onClose }: BuyOrderModalProps) {
             >
               {pairsLoading ? (
                 <option>Loading pairs...</option>
+              ) : getCurrentPairs().length === 0 ? (
+                <option>No pairs available</option>
               ) : (
-                tradingPairs?.filter(pair => pair.includes('USDT')).slice(0, 20).map(pair => {
-                  // Convert ETHUSDT to ETH/USDT format for display
-                  const displayPair = pair.replace('USDT', '/USDT');
-                  return (
-                    <option key={pair} value={displayPair}>
-                      {displayPair}
-                    </option>
-                  );
-                })
+                getCurrentPairs().map(pair => (
+                  <option key={pair} value={pair}>
+                    {pair}
+                  </option>
+                ))
               )}
             </select>
+
+            <div className="text-xs text-muted-foreground mt-1">
+              {getCurrentPairs().length} pairs available in {pairCategory} category
+            </div>
           </div>
 
           {/* Current Price */}
@@ -187,8 +280,53 @@ export function BuyOrderModal({ isOpen, onClose }: BuyOrderModalProps) {
             <div className="flex items-center gap-2 p-3 bg-muted/30 rounded-lg">
               <TrendingUp className="w-4 h-4 text-primary" />
               <span className="text-sm">
-                Current Price: <strong>{formatCurrency(priceData.price)}</strong>
+                Current Price: <strong>
+                  {getQuoteCurrency() === 'USDT'
+                    ? formatCurrency(priceData.price)
+                    : `${priceData.price.toFixed(8)} ${getQuoteCurrency()}`
+                  }
+                </strong>
               </span>
+            </div>
+          )}
+
+          {/* Price Loading or Error */}
+          {!priceData && selectedSymbol && (
+            <div className="flex items-center gap-2 p-3 bg-muted/30 rounded-lg">
+              <TrendingUp className="w-4 h-4 text-muted-foreground" />
+              <span className="text-sm text-muted-foreground">
+                Loading price for {selectedSymbol}...
+              </span>
+            </div>
+          )}
+
+          {/* Quote Currency Balance Warning */}
+          {!hasQuoteCurrencyBalance() && getQuoteCurrency() !== 'USDT' && (
+            <div className="p-3 bg-orange-500/10 border border-orange-500/20 rounded-lg">
+              <div className="flex items-start gap-2">
+                <AlertCircle className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
+                <div className="text-xs text-orange-500">
+                  <strong>No {getQuoteCurrency()} Balance:</strong> You need {getQuoteCurrency()} to buy this pair.
+                  Consider using <strong>{getUSDTAlternative()}</strong> instead, or buy {getQuoteCurrency()} first.
+                  <div className="mt-2 flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedSymbol(getUSDTAlternative())}
+                      className="text-xs bg-orange-500/20 hover:bg-orange-500/30 px-2 py-1 rounded transition-colors"
+                      disabled={!popularPairs.includes(getUSDTAlternative()) && !usdtPairs.includes(getUSDTAlternative())}
+                    >
+                      Switch to {getUSDTAlternative()}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowQuoteHelper(true)}
+                      className="text-xs bg-blue-500/20 hover:bg-blue-500/30 px-2 py-1 rounded transition-colors"
+                    >
+                      Buy {getQuoteCurrency()} First
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
@@ -224,7 +362,9 @@ export function BuyOrderModal({ isOpen, onClose }: BuyOrderModalProps) {
           {/* Order Amount Input */}
           {orderType === 'amount' ? (
             <div>
-              <label className="block text-sm font-medium mb-2">Amount (USDT)</label>
+              <label className="block text-sm font-medium mb-2">
+                Amount ({getQuoteCurrency()})
+              </label>
               <div className="relative">
                 <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <input
@@ -242,7 +382,7 @@ export function BuyOrderModal({ isOpen, onClose }: BuyOrderModalProps) {
           ) : (
             <div>
               <label className="block text-sm font-medium mb-2">
-                Percentage of USDT Balance ({formatCurrency(usdtBalance?.balance || 0)})
+                Percentage of {getQuoteCurrency()} Balance ({getQuoteCurrency() === 'USDT' ? formatCurrency(getQuoteCurrencyBalance()) : `${getQuoteCurrencyBalance().toFixed(8)} ${getQuoteCurrency()}`})
               </label>
               <div className="space-y-3">
                 <input
@@ -286,7 +426,10 @@ export function BuyOrderModal({ isOpen, onClose }: BuyOrderModalProps) {
                   ? 'text-red-500'
                   : 'text-green-500'
               }`}>
-                {formatCurrency(calculateOrderAmount())}
+                {getQuoteCurrency() === 'USDT'
+                  ? formatCurrency(calculateOrderAmount())
+                  : `${calculateOrderAmount().toFixed(8)} ${getQuoteCurrency()}`
+                }
               </span>
             </div>
             {priceData && (
@@ -303,7 +446,12 @@ export function BuyOrderModal({ isOpen, onClose }: BuyOrderModalProps) {
             )}
             <div className="flex justify-between text-sm">
               <span>Available Balance:</span>
-              <span className="font-medium">{formatCurrency(usdtBalance?.balance || 0)}</span>
+              <span className="font-medium">
+                {getQuoteCurrency() === 'USDT'
+                  ? formatCurrency(getQuoteCurrencyBalance())
+                  : `${getQuoteCurrencyBalance().toFixed(8)} ${getQuoteCurrency()}`
+                }
+              </span>
             </div>
 
             {/* Validation info */}
@@ -354,6 +502,8 @@ export function BuyOrderModal({ isOpen, onClose }: BuyOrderModalProps) {
             disabled={
               buyMutation.isPending ||
               calculateOrderAmount() <= 0 ||
+              calculateOrderAmount() > getQuoteCurrencyBalance() ||
+              !hasQuoteCurrencyBalance() ||
               (symbolInfo ? calculateOrderAmount() < symbolInfo.minNotional : false) ||
               (priceData && symbolInfo && symbolInfo.minQty ? estimatedQuantity < symbolInfo.minQty : false)
             }
@@ -384,6 +534,18 @@ export function BuyOrderModal({ isOpen, onClose }: BuyOrderModalProps) {
           </div>
         </div>
       </div>
+
+      {/* Quote Currency Helper Modal */}
+      <QuoteCurrencyHelper
+        isOpen={showQuoteHelper}
+        onClose={() => setShowQuoteHelper(false)}
+        quoteCurrency={getQuoteCurrency()}
+        targetSymbol={selectedSymbol}
+        onSuccess={() => {
+          // Refresh portfolio data
+          queryClient.invalidateQueries({ queryKey: ['portfolio'] });
+        }}
+      />
     </div>
   );
 }

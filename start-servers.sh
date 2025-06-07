@@ -86,7 +86,7 @@ if [ ! -d "node_modules" ]; then
 fi
 
 # Start UI server
-npm run dev -- --port 3500 > ../ui.log 2>&1 &
+npm run dev:3500 > ../ui.log 2>&1 &
 UI_PID=$!
 
 # Wait a moment for UI to start

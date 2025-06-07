@@ -5,7 +5,7 @@ import hashlib
 import hmac
 from urllib.parse import urlencode
 import os
-from decimal import Decimal, ROUND_DOWN
+from decimal import Decimal, ROUND_DOWN, ROUND_HALF_UP
 from dotenv import load_dotenv
 import json
 import threading
@@ -110,13 +110,29 @@ class PaperTradingClient:
                     for f in s.get("filters", []):
                         if f["filterType"] == "PRICE_FILTER":
                             tick_size = f["tickSize"]
-                            price_precision = len(tick_size.split('.')[1]) if '.' in tick_size else 0
+                            if '.' in tick_size:
+                                # Count decimal places, but handle scientific notation
+                                if 'e' in tick_size.lower():
+                                    price_precision = abs(int(tick_size.lower().split('e')[1]))
+                                else:
+                                    price_precision = len(tick_size.split('.')[1].rstrip('0'))
+                            else:
+                                price_precision = 0
                         if f["filterType"] == "LOT_SIZE":
                             step_size = f["stepSize"]
-                            quantity_precision = len(step_size.split('.')[1]) if '.' in step_size else 0
+                            if '.' in step_size:
+                                # Count decimal places, but handle scientific notation
+                                if 'e' in step_size.lower():
+                                    quantity_precision = abs(int(step_size.lower().split('e')[1]))
+                                else:
+                                    quantity_precision = len(step_size.split('.')[1].rstrip('0'))
+                            else:
+                                quantity_precision = 0
                         if f["filterType"] == "MIN_NOTIONAL":
                             min_notional = float(f["minNotional"])
+                    logging.info(f"Symbol {symbol}: quantity_precision={quantity_precision}, price_precision={price_precision}, min_notional={min_notional}")
                     return quantity_precision, price_precision, min_notional
+        logging.warning(f"Could not get precision for {symbol}, using defaults")
         return 8, 2, 10.0
 
     def _validate_order_params(self, symbol, side, quantity=None, price=None, quote_order_qty=None):
@@ -613,7 +629,13 @@ class PaperTradingClient:
         
         quantity = asset_balance * (percentage / 100)
         quantity_precision, _, min_notional = self._get_symbol_precision(symbol)
-        quantity = float(Decimal(str(quantity)).quantize(Decimal(f"0.{'0' * quantity_precision}"), rounding=ROUND_DOWN))
+
+        logging.info(f"Sell calculation for {symbol}: asset_balance={asset_balance}, percentage={percentage}, raw_quantity={quantity}, precision={quantity_precision}")
+
+        # Use ROUND_HALF_UP instead of ROUND_DOWN to avoid rounding to 0
+        quantity = float(Decimal(str(quantity)).quantize(Decimal(f"0.{'0' * quantity_precision}"), rounding=ROUND_HALF_UP))
+
+        logging.info(f"Rounded quantity: {quantity}")
         
         price = self.view_current_price(symbol)
         if price is None:
